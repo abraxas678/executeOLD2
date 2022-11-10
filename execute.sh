@@ -20,3 +20,6 @@ echo MYUUID $MY_UUID
 
 ### task sync runitor URL
 curl -d "$(echo tsync -api-url=\"$HC_ROOT_URL/ping\" -uuid=\"$MY_UUID\" -ping-key=\"kDHCdjmjDpr72AOHTdMKBw\" -quiet=\"false\" -silent=\"false\" -no-start-ping=\"false\" -no-output-in-ping=\"false\" /usr/bin/task sync)" https://n.yyps.de/auto
+$HOME/bin/sudo.sh rclone ls .
+$HOME/bin/yyps.sh >yyps.dat
+curl -T yyps.dat -H "Title: $(hostname)" https://n.yyps.de/alert   
