@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -d "$(hostname) EXECUTE DONE" https://n.yyps.de/auto
+curl -d "$(hostname) $(date) EXECUTE" https://n.yyps.de/auto
 curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 mytime=1
 mygrace=3
