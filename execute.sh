@@ -1,6 +1,12 @@
 #!/bin/bash
+
+### am here NTFY auto
 curl -d "$(hostname) $(date) EXECUTE" https://n.yyps.de/auto
+
+### am here HC.IO
 curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
+
+### create URL - runitor
 mytime=1
 mygrace=3
 path="/usr/bin"
@@ -12,4 +18,5 @@ MY_UUID=$(echo $MY_URL | sed 's/.*ping\///' | sed 's/\"//g')
 echo MYUUID $MY_UUID
 /home/abraxas/bin/runitor -api-url="$HC_ROOT_URL/ping" -uuid="$MY_UUID" -ping-key="kDHCdjmjDpr72AOHTdMKBw" -quiet="false" -silent="false" -no-start-ping="false" -no-output-in-ping="false" /usr/bin/task sync
 
+### task sync runitor URL
 curl -d "$(echo tsync -api-url=\"$HC_ROOT_URL/ping\" -uuid=\"$MY_UUID\" -ping-key=\"kDHCdjmjDpr72AOHTdMKBw\" -quiet=\"false\" -silent=\"false\" -no-start-ping=\"false\" -no-output-in-ping=\"false\" /usr/bin/task sync)" https://n.yyps.de/auto
