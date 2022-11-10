@@ -6,6 +6,7 @@ mygrace=3
 path="/usr/bin"
 name=task
 MY_URL=$(/home/abraxas/myq/Auto-provisioning_HealthCheckVAR.io.sh "$(hostname)" "$path" "$name" "$mytime" "$mygrace")
+curl -d "MY_URL: $MY_URL" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)/log
 echo "URL RECEIVED: $MY_URL"
 MY_UUID=$(echo $MY_URL | sed 's/.*ping\///' | sed 's/\"//g')
 echo MYUUID $MY_UUID
