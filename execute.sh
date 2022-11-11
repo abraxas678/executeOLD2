@@ -14,8 +14,12 @@ if [[ $(hostname) = *"aws"* ]]; then
     ls -al >~/.mojopaste/mojolist1
     ### compare 2 file-lists
     for line in $(cat ~/.mojopaste/mojolist1); do 
-      [[ $line != *"$(cat ~/.mojopaste/mojolist2)"* ]] && echo $line ~/.mojopaste/my_changes
-    done
+       rm -f ~/.mojopaste/my_changes
+      [[ $line != *"$(cat ~/.mojopaste/mojolist2)"* ]] && echo $line >> ~/.mojopaste/my_changes
+      MY_FILE_SIZE1=$($HOME/bin/size.sh ./$line --json | jq '.bytes')
+      MY_FILE_SIZE2=$(cat ~/.mojopaste/mojolist2 | grep $line  | awk '{ print $5 }'
+)
+  done
   fi
 fi
 echo $MY_SIZE >~/.mojopaste/my_size
