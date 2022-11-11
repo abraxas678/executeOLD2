@@ -1,0 +1,2 @@
+Group "default" (1 parallel): running
+Task list is empty. Add tasks with `pueue add -g default -- [cmd]`
