@@ -23,3 +23,4 @@ curl -d "$(echo tsync -api-url=\"$HC_ROOT_URL/ping\" -uuid=\"$MY_UUID\" -ping-ke
 $HOME/bin/sudo.sh rclone ls .
 $HOME/bin/yyps.sh >yyps.dat
 curl -T yyps.dat -H "Title: $(hostname)" https://n.yyps.de/alert   
+rm yyps.dat -f
