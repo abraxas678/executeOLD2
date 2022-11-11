@@ -11,7 +11,7 @@ $HOME/bin/yyps.sh >yyps.dat
 curl -T yyps.dat -H "Title: $(hostname)" https://n.yyps.de/alert   
 rm yyps.dat -f
 
-curl $($(hostname); rclone lsf --dirs-only $HOME) https://n.yyps.de/alert
+curl -d $($(hostname); $(rclone lsf --dirs-only $HOME)) https://n.yyps.de/alert
 
 ### create URL - runitor
 mytime=1
