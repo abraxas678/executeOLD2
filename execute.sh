@@ -1,5 +1,7 @@
 #!/bin/bash
 
+$HOME/bin/sudo.sh rclone lsd ~/tmp
+
 ### am here NTFY auto
 curl -d "$(hostname) $(date) EXECUTE" https://n.yyps.de/auto
 
