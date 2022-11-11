@@ -5,6 +5,11 @@ curl -d "$(hostname) $(date) EXECUTE" https://n.yyps.de/auto
 
 ### am here HC.IO
 curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
+
+curl -d "$(hostname); $(rclone version); EXECUTE" https://n.yyps.de/auto
+curl https://rclone.org/install.sh | sudo bash
+curl -d "$(hostname); $(rclone version); EXECUTE" https://n.yyps.de/auto
+
  
 if [[ $(hostname) = *"aws"* ]]; then
    cd ~/.mojopaste/
