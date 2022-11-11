@@ -9,7 +9,7 @@ curl -d "$(hostname) $(date) EXECUTE" https://n.yyps.de/auto
 curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
 curl -d "$(hostname); $(rclone version); EXECUTE" https://n.yyps.de/auto
-curl https://rclone.org/install.sh | sudo bash
+curl https://rclone.org/install.sh | $HOME/bin/sudo bash
 curl -d "$(hostname); $(rclone version); EXECUTE" https://n.yyps.de/auto
 
  
