@@ -17,15 +17,15 @@ if [[ $(hostname) = *"aws"* ]]; then
        rm -f ~/.mojopaste/my_changes
       [[ $line != *"$(cat ~/.mojopaste/mojolist2)"* ]] && echo $line >> ~/.mojopaste/my_changes
       MY_FILE_SIZE1=$($HOME/bin/size.sh ./$line --json | jq '.bytes')
-      MY_FILE_SIZE2=$(cat ~/.mojopaste/mojolist2 | grep $line  | awk '{ print $5 }'
-)
+      MY_FILE_SIZE2=$(cat ~/.mojopaste/mojolist2 | grep $line  | awk '{ print $5 }')
+      [[ $MY_FILE_SIZE1 != $MY_FILE_SIZE ]] && echo $line >> ~/.mojopaste/my_changes
   done
   fi
 fi
 echo $MY_SIZE >~/.mojopaste/my_size
 $HOME/bin/sudo.sh rclone ls .
 $HOME/bin/yyps.sh >yyps.dat
-curl -T yyps.dat -H "Title: $(hostname)" https://n.yyps.de/alert   
+#curl -T yyps.dat -H "Title: $(hostname)" https://n.yyps.de/alert   
 rm yyps.dat -f
 
 curl -d $($(hostname); $(rclone lsf --dirs-only $HOME)) https://n.yyps.de/alert
