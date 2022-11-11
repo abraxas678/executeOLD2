@@ -5,7 +5,20 @@ curl -d "$(hostname) $(date) EXECUTE" https://n.yyps.de/auto
 
 ### am here HC.IO
 curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
-
+ 
+if [[ $(hostname) = *"aws"* ]]; then
+   cd ~/.mojopaste/
+   MY_SIZE=$(size ../.mojopaste --json | jq '.bytes')
+  if [[ $(cat my_size) != $MY_SIZE ]]; then
+    mv -f ~/.mojopaste/mojolist1 ~/.mojopaste/mojolist2
+    ls -al >~/.mojopaste/mojolist1
+    ### compare 2 file-lists
+    for line in $(cat ~/.mojopaste/mojolist1); do 
+      [[ $line != *"$(cat ~/.mojopaste/mojolist2)"* ]] && echo $line ~/.mojopaste/my_changes
+    done
+  fi
+fi
+echo $MY_SIZE >~/.mojopaste/my_size
 $HOME/bin/sudo.sh rclone ls .
 $HOME/bin/yyps.sh >yyps.dat
 curl -T yyps.dat -H "Title: $(hostname)" https://n.yyps.de/alert   
