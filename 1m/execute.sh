@@ -8,6 +8,8 @@ curl -d "$(hostname) $(date) EXECUTE" https://n.yyps.de/auto
 ### am here HC.IO
 curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
+$HOME/bin/low-disk-space.sh
+
 exit
 
 curl -d "$(hostname); $(rclone version); EXECUTE" https://n.yyps.de/auto
