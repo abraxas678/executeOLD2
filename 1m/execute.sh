@@ -10,9 +10,7 @@ curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
 $HOME/bin/low-disk-space.sh
 
-if [[ $(hostname) = *"ionos" ]]; then
-  $HOME/bin/bookmarks.sh
-fi
+
 
 exit
 
