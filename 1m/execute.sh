@@ -10,6 +10,10 @@ curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
 $HOME/bin/low-disk-space.sh
 
+if [[ $(hostname) = *"ionos" ]]; then
+  $HOME/bin/bookmarks.sh
+fi
+
 exit
 
 curl -d "$(hostname); $(rclone version); EXECUTE" https://n.yyps.de/auto
@@ -18,6 +22,7 @@ curl -d "$(hostname); $(rclone version); EXECUTE" https://n.yyps.de/auto
 
  
 if [[ $(hostname) = *"aws"* ]]; then
+
    cd ~/.mojopaste/
    MY_SIZE=$(size ../.mojopaste --json | jq '.bytes')
   if [[ $(cat my_size) != $MY_SIZE ]]; then
