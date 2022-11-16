@@ -3,7 +3,7 @@
 $HOME/bin/sudo.sh rclone lsd ~/tmp
 
 ### am here NTFY auto
-curl -d "$(hostname) $(date) EXECUTE" https://n.yyps.de/auto
+curl -d "$(hostname) $(date) EXECUTE $(cat ~/.sync_check//$(ls -la  ~/.sync_check | tail -n 1  | awk '{ print $9 }'))" https://n.yyps.de/auto
 
 ### am here HC.IO
 curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
