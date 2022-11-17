@@ -9,7 +9,6 @@ curl -d "$(hostname) $(date) EXECUTE $(cat ~/.sync_check//$(ls -la  ~/.sync_chec
 curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
 #$HOME/bin/low-disk-space.sh
-$HOME/bin/sudo.sh updatedb
 #curl -d "$(hostname) NEW" https://n.yyps.de/alert
 
 exit
