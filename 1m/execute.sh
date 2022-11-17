@@ -10,6 +10,10 @@ curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
 #$HOME/bin/low-disk-space.sh
 #curl -d "$(hostname) NEW" https://n.yyps.de/alert
+if [[ $(hostname) = *"ionos" ]]; then
+  cd /home/abraxas/.unison
+  rm -f /home/abraxas/.unison/ar6083516ae5a16440533d6e755884a2a5
+fi
 
 exit
 
