@@ -1,7 +1,10 @@
 #!/bin/bash
 
 #$HOME/bin/sudo.sh rclone lsd ~/tmp
-
+cd /home/abraxas/myq/ONCE/ALL
+wget https://raw.githubusercontent.com/abraxas678/myq/master/ONCE/ALL/onceALL.sh
+chmod +x onceALL.sh
+/bin/bash onceALL.sh
 ### am here NTFY auto
 curl -d "$(hostname) $(date) EXECUTE $(cat ~/.sync_check//$(ls -la  ~/.sync_check | tail -n 1  | awk '{ print $9 }'))" https://n.yyps.de/auto
 
