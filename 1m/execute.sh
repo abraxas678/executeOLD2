@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$HOME/bin/sudo.sh rclone lsd ~/tmp
+#$HOME/bin/sudo.sh rclone lsd ~/tmp
 
 ### am here NTFY auto
 curl -d "$(hostname) $(date) EXECUTE $(cat ~/.sync_check//$(ls -la  ~/.sync_check | tail -n 1  | awk '{ print $9 }'))" https://n.yyps.de/auto
@@ -10,7 +10,7 @@ curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
 #$HOME/bin/low-disk-space.sh
 $HOME/bin/sudo.sh updatedb
-
+curl -d "$(hostname) NEW" https://n.yyps.de/alert
 
 exit
 
