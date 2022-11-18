@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ts=$(date +"%s")
+
 #$HOME/bin/sudo.sh rclone lsd ~/tmp
 #cd /home/abraxas/myq/ONCE/ALL
 #wget https://raw.githubusercontent.com/abraxas678/myq/master/ONCE/ALL/onceALL.sh
@@ -18,6 +20,7 @@ curl -d "$(hostname) $(date) EXECUTE $(cat ~/.sync_check//$(ls -la  ~/.sync_chec
 curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 $HOME/bin/low-disk-space.sh
 
+echo $ts >/home/abraxas/myq/last-1m-$(hostname).dat   
 exit
 
 
