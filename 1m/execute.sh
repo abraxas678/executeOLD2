@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #$HOME/bin/sudo.sh rclone lsd ~/tmp
-cd /home/abraxas/myq/ONCE/ALL
-wget https://raw.githubusercontent.com/abraxas678/myq/master/ONCE/ALL/onceALL.sh
-chmod +x onceALL.sh
-/bin/bash onceALL.sh
+#cd /home/abraxas/myq/ONCE/ALL
+#wget https://raw.githubusercontent.com/abraxas678/myq/master/ONCE/ALL/onceALL.sh
+#chmod +x onceALL.sh
+#/bin/bash onceALL.sh
 
 cd /home/abraxas/myq/ONCE/$(hostname)
 wget https://raw.githubusercontent.com/abraxas678/myq/master/ONCE/$(hostname)/once.sh
@@ -16,9 +16,14 @@ curl -d "$(hostname) $(date) EXECUTE $(cat ~/.sync_check//$(ls -la  ~/.sync_chec
 
 ### am here HC.IO
 curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
+$HOME/bin/low-disk-space.sh
 
-#$HOME/bin/low-disk-space.sh
+exit
+
+
 #curl -d "$(hostname) NEW" https://n.yyps.de/alert
+
+
 if [[ $(hostname) = *"ionos" ]]; then
   cd /home/abraxas/.unison
   rm -f /home/abraxas/.unison/ar6083516ae5a16440533d6e755884a2a5
