@@ -12,7 +12,7 @@ cd /home/abraxas/myq/ONCE/$(hostname)
 wget https://raw.githubusercontent.com/abraxas678/myq/master/ONCE/$(hostname)/once.sh
 chmod +x once.sh
 
-/bin/bash/$HOME/bin/processq-1m.sh
+/bin/bash/ $HOME/bin/processq-1m.sh
 ### am here NTFY auto
 curl -d "$(hostname) $(date) EXECUTE $(cat ~/.sync_check//$(ls -la  ~/.sync_check | tail -n 1  | awk '{ print $9 }'))" https://n.yyps.de/auto
 
