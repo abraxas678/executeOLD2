@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source /home/abraxas/bin/path.dat
 source /home/abraxas/.zsh.env
 
 ts=$(date +"%s")
