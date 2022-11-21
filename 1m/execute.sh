@@ -7,7 +7,7 @@ ts=$(date +"%s")
 #wget https://raw.githubusercontent.com/abraxas678/myq/master/ONCE/ALL/onceALL.sh
 #chmod +x onceALL.sh
 #/bin/bash onceALL.sh
-/bin/bash $HOME/bin/check-my-tasks.sh
+/home/abraxas/bin/runitor -slug $(hostname)flex check-my-tasks.sh
 
 #cd /home/abraxas/myq/ONCE/$(hostname)
 #wget https://raw.githubusercontent.com/abraxas678/myq/master/ONCE/$(hostname)/once.sh
