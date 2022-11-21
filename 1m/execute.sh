@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source /home/abraxas/.zsh.env
+
 ts=$(date +"%s")
 
 #$HOME/bin/sudo.sh rclone lsd ~/tmp
