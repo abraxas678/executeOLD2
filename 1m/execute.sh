@@ -6,7 +6,8 @@ source /home/abraxas/.zsh.env
 ts=$(date +"%s")
 echo $ts
 rm -f /home/abraxas/test.dat
-/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/check-my-tasks.sh >>/home/abraxas/test.dat 2>>/home/abraxas/test.dat
+/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/check-my-tasks.sh 
+#>>/home/abraxas/test.dat 2>>/home/abraxas/test.dat
 
 ### am here NTFY auto
 curl -d "$(hostname) $(date) EXECUTE $(cat ~/.sync_check//$(ls -la  ~/.sync_check | tail -n 1  | awk '{ print $9 }'))" https://n.yyps.de/auto
@@ -14,7 +15,7 @@ curl -d "$(hostname) $(date) EXECUTE $(cat ~/.sync_check//$(ls -la  ~/.sync_chec
 ### am here HC.IO
 curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
-/bin/bash $HOME/bin/low-disk-space.sh
+/home/abraxas/bin/runitor -slug $(hostname)flex $HOME/bin/low-disk-space.sh
 
 echo $ts >/home/abraxas/myq/last-1m-$(hostname).dat   
 exit
