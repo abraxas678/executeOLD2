@@ -10,9 +10,9 @@ cd $HOME/tmp/$ts
 git clone https://github.com/abraxas678/execute.git
 cd $HOME/tmp/$ts/execute/1m
 
-wget https://github.com/abraxas678/execute/raw/master/1m/1m-execute-setup.tar
-tar -xf $HOME/tmp/$ts/execute/1m/1m-execute-setup.tar
-rm $HOME/tmp/$ts/execute/1m/1m-execute-setup.tar -f
+#wget https://github.com/abraxas678/execute/raw/master/1m/1m-execute-setup.tar
+#tar -xf $HOME/tmp/$ts/execute/1m/1m-execute-setup.tar
+#rm $HOME/tmp/$ts/execute/1m/1m-execute-setup.tar -f
 mkdir /home/abraxas/myq >/dev/null 2>/dev/null
 mkdir /home/abraxas/myq/service >/dev/null 2>/dev/null
 mv $HOME/tmp/$ts/execute/1m/1m.sh /home/abraxas/myq/service
