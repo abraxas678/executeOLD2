@@ -1,5 +1,8 @@
 #!/bin/bash
 
+/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/low-disk-space.sh
+
+exit
 source /home/abraxas/bin/path.dat
 source /home/abraxas/.zsh.env
 
@@ -15,7 +18,7 @@ curl -d "$(hostname) $(date) EXECUTE $(cat ~/.sync_check//$(ls -la  ~/.sync_chec
 ### am here HC.IO
 curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
-/home/abraxas/bin/runitor -slug $(hostname)flex $HOME/bin/low-disk-space.sh
+
 
 echo $ts >/home/abraxas/myq/last-1m-$(hostname).dat   
 exit
