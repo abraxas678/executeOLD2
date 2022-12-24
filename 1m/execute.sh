@@ -1,6 +1,7 @@
 #!/bin/bash
 
-/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/low-disk-space.sh
+#/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/low-disk-space.sh
+$HOME/bin/wai.sh
 
 exit
 source /home/abraxas/bin/path.dat
