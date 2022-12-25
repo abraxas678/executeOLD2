@@ -2,6 +2,7 @@
 
 #/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/low-disk-space.sh
 #/bin/bash $HOME/bin/wai.sh execute.sh
+[[ $(which nnn) = *"nnn not found"* ]] && /bin/bash $HOME/bin/sudo.sh apt install nnn -y
 
 exit
 source /home/abraxas/bin/path.dat
