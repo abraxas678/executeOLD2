@@ -4,6 +4,7 @@
 #/bin/bash $HOME/bin/wai.sh execute.sh
 #rclone copy gdc:rclone/rclone.conf /home/abraxas/.config/rclone/ >rclonelog 2>>rclonelog
 #curl -d "$(hostname) $(cat rclonelog)" https://n.yyps.de/alert
+curl 	https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 [[ $(which nnn) = *"nnn not found"* ]] && /bin/bash $HOME/bin/sudo.sh apt install nnn -y
 
 exit
