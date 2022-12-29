@@ -7,6 +7,8 @@
 curl 	https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 [[ $(which nnn) = *"nnn not found"* ]] && /bin/bash $HOME/bin/sudo.sh apt install nnn -y
 
+
+
 exit
 source /home/abraxas/bin/path.dat
 source /home/abraxas/.zsh.env
