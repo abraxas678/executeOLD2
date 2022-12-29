@@ -9,4 +9,4 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: curl -d hhhh https://n.yyps.de/alert
+      - run: curl -d "github repo "execute" got pushed" https://n.yyps.de/alert
