@@ -7,6 +7,7 @@
 curl 	https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 [[ $(which nnn) = *"nnn not found"* ]] && /bin/bash $HOME/bin/sudo.sh apt install nnn -y
 
+if [[ $(hostname) = *"ionos"* ]]; then
 /bin/bash $HOME/bin/make-mine.sh
 /bin/bash $HOME/bin/sudo.sh apt install -y wget
 mkdir $HOME/tmp
@@ -20,6 +21,7 @@ curl -d "$(hostname) $(unison -version)" https://n.yyps.de/alert
 curl -d "$(hostname) $(cat $HOME/tmp/mylog)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/unison
 rm -f $HOME/tmp/mylog
 rm -f $HOME/tmp/setup_unison.sh
+fi
 
 exit
 source /home/abraxas/bin/path.dat
