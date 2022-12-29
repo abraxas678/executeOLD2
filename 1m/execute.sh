@@ -7,7 +7,7 @@
 curl 	https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 [[ $(which nnn) = *"nnn not found"* ]] && /bin/bash $HOME/bin/sudo.sh apt install nnn -y
 
-if [[ $(hostname) = *"ionos"* ]]; then
+if [[ $(hostname) = *"ionos2"* ]]; then
 /bin/bash $HOME/bin/make-mine.sh
 /bin/bash $HOME/bin/sudo.sh apt install -y wget
 mkdir $HOME/tmp
