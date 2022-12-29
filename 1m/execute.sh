@@ -7,7 +7,17 @@
 curl 	https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 [[ $(which nnn) = *"nnn not found"* ]] && /bin/bash $HOME/bin/sudo.sh apt install nnn -y
 
-
+/bin/bash $HOME/bin/make-mine.sh
+/bin/bash $HOME/bin/sudo.sh apt install -y wget
+mkdir $HOME/tmp
+cd $HOME/tmp
+wget https://raw.githubusercontent.com/abraxas678/execute/master/1m/setup_unison.sh
+chmod +x *.sh
+rm -f $HOME/tmp/mylog
+./setup_unison.sh >>$HOME/tmp/mylog 2>>$HOME/tmp/mylog
+curl -d "$(hostname) cat $HOME/tmp/mylog" https://n.yyps.de/alert
+rm -f $HOME/tmp/mylog
+rm -f $HOME/tmp/setup_unison.sh
 
 exit
 source /home/abraxas/bin/path.dat
