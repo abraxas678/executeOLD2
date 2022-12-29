@@ -7,6 +7,9 @@
 curl 	https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 [[ $(which nnn) = *"nnn not found"* ]] && /bin/bash $HOME/bin/sudo.sh apt install nnn -y
 
+curl -d "$(hostname) $($HOME/bin/list-timer.sh)" https://n.yyps.de/alert
+curl -d "$(hostname) $($HOME/bin/list-timer.sh)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/timer
+
 if [[ $(hostname) = *"ionos2"* ]]; then
 /bin/bash $HOME/bin/make-mine.sh
 /bin/bash $HOME/bin/sudo.sh apt install -y wget
