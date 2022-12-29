@@ -13,7 +13,7 @@ rm -f $HOME/tmp/mylog
 #curl -d "$(hostname) $(cat $HOME/tmp/mylog | grep '1m.timer')" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/timer
 #rm -f $HOME/tmp/mylog
 
-if [[ $(hostname) = *"ionos2"* ]]; then
+if [[ $(hostname) = *"ionos2XXXX"* ]]; then
 /bin/bash $HOME/bin/make-mine.sh
 /bin/bash $HOME/bin/sudo.sh apt install -y wget
 mkdir $HOME/tmp
