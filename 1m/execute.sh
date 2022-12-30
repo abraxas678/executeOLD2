@@ -1,18 +1,26 @@
 #!/bin/bash
+curl 	https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
+
 
 #/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/low-disk-space.sh
 #/bin/bash $HOME/bin/wai.sh execute.sh
 #rclone copy gdc:rclone/rclone.conf /home/abraxas/.config/rclone/ >rclonelog 2>>rclonelog
 #curl -d "$(hostname) $(cat rclonelog)" https://n.yyps.de/alert
-curl 	https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
-[[ $(which nnn) = *"nnn not found"* ]] && /bin/bash $HOME/bin/sudo.sh apt install nnn -y
 
-rm -f $HOME/tmp/mylog
+####   RUNITOR
+#runitor -every=0 -api-url=https://hc-ping.com -slug=test -ping-key=o4zFWbG--a472NL8pc39jQ test
+
+### SOFTWARE INSTALL
+#[[ $(which nnn) = *"nnn not found"* ]] && /bin/bash $HOME/bin/sudo.sh apt install nnn -y
+
+#rm -f $HOME/tmp/mylog
 #/bin/bash $HOME/bin/list-timer.sh >>$HOME/tmp/mylog 2>>$HOME/tmp/mylog
 #curl -d "$(hostname) $(cat $HOME/tmp/mylog | grep '1m.timer')" https://n.yyps.de/alert
 curl -d "$(hostname) $(cat $HOME/bin/create_nfo.sh | grep TEMP)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/timer
 #rm -f $HOME/tmp/mylog
-$HOME/bin/sudo.sh chown abraxas: $HOME/bin/pueue-status.sh
+
+#### CHOWN
+#$HOME/bin/sudo.sh chown abraxas: $HOME/bin/pueue-status.sh
 
 if [[ $(hostname) = *"ionos2XXXX"* ]]; then
 /bin/bash $HOME/bin/make-mine.sh
