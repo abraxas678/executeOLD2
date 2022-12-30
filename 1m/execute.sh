@@ -16,7 +16,13 @@ curl 	https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 #rm -f $HOME/tmp/mylog
 #/bin/bash $HOME/bin/list-timer.sh >>$HOME/tmp/mylog 2>>$HOME/tmp/mylog
 #curl -d "$(hostname) $(cat $HOME/tmp/mylog | grep '1m.timer')" https://n.yyps.de/alert
-curl -d "$(hostname) $(cat $HOME/bin/create_nfo.sh | grep TEMP)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/timer
+#curl -d "$(hostname) $(cat $HOME/bin/create_nfo.sh | grep TEMP)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/timer
+
+curl -d "$(hostname) $(cat $HOME/bin/create_nfo.sh | grep TEMP)" https://maker.ifttt.com/trigger/round-robin-result-json/with/key/4q38KZvz7CwD5_QzdUZHq
+curl -d "$(hostname) EXECUTE.SH" https://n.yyps.de/alert
+
+#curl -d "$(hostname) $(cat $HOME/tmp/mylog | grep '1m.timer')" https://n.yyps.de/alert
+
 #rm -f $HOME/tmp/mylog
 
 #### CHOWN
@@ -37,6 +43,8 @@ curl -d "$(hostname) $(cat $HOME/tmp/mylog)" https://hc-ping.com/o4zFWbG--a472NL
 rm -f $HOME/tmp/mylog
 rm -f $HOME/tmp/setup_unison.sh
 fi
+
+
 
 exit
 source /home/abraxas/bin/path.dat
