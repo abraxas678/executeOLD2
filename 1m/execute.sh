@@ -9,6 +9,7 @@ curl 	https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
 ####   RUNITOR
 #runitor -every=0 -api-url=https://hc-ping.com -slug=test -ping-key=o4zFWbG--a472NL8pc39jQ test
+runitor -every=0 -api-url=https://hc-ping.com -slug=test -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L order1.yyps.de)
 
 ### SOFTWARE INSTALL
 #[[ $(which nnn) = *"nnn not found"* ]] && /bin/bash $HOME/bin/sudo.sh apt install nnn -y
