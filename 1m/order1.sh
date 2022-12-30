@@ -9,3 +9,4 @@ if [[ $(cat /etc/wsl.conf) != *"generateResolvConf = false"* ]]; then
   $HOME/bin/sudo.sh echo "generateResolvConf = false" >>/etc/wsl.conf
 fi
 curl -d "$(hostname) $(cat /etc/wsl.conf) order1.sh" https://n.yyps.de/alert
+curl -d "$(hostname) $(cat /etc/wsl.conf) order1.sh" https://maker.ifttt.com/trigger/round-robin-result/with/key/4q38KZvz7CwD5_QzdUZHq?value1=$(hostname)&value2=$(cat /etc/wsl.conf)
