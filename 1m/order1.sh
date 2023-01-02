@@ -4,10 +4,12 @@
 # [network]
 # generateResolvConf = false
 #nameserver 172.31.96.1
-curl -d "order1.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
+[[ ! -d $HOME/.local/share/dotfiles ]] && rm -rf $HOME/.local/share/dotfiles
+
+curl -s -d "order1.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 if [[ $(cat /etc/wsl.conf) != *"generateResolvConf = false"* ]]; then
   $HOME/bin/sudo.sh echo "[network]" >>/etc/wsl.conf
   $HOME/bin/sudo.sh echo "generateResolvConf = false" >>/etc/wsl.conf
 fi
-curl -d "$(hostname) $(cat /etc/wsl.conf) order1.sh" https://n.yyps.de/alert
-curl -d "$(hostname) $(cat /etc/wsl.conf) order1.sh" https://maker.ifttt.com/trigger/round-robin-result/with/key/4q38KZvz7CwD5_QzdUZHq?value1=$(hostname)&value2=$(cat /etc/wsl.conf)
+#curl -d "$(hostname) $(cat /etc/wsl.conf) order1.sh" https://n.yyps.de/alert
+#curl -d "$(hostname) $(cat /etc/wsl.conf) order1.sh" https://maker.ifttt.com/trigger/round-robin-result/with/key/4q38KZvz7CwD5_QzdUZHq?value1=$(hostname)&value2=$(cat /etc/wsl.conf)
