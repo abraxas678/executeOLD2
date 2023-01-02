@@ -4,7 +4,7 @@ echo "exeute.sh_version: 0.1"
 #runitor -every=0 -api-url=https://hc-ping.com -slug=test -ping-key=o4zFWbG--a472NL8pc39jQ test
 /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=test -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L order1.yyps.de)
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
-curl -d "111111111111" https://n.yyps.de/alert
+#curl -d "111111111111" https://n.yyps.de/alert
 
 #/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/low-disk-space.sh
 #/bin/bash $HOME/bin/wai.sh execute.sh
