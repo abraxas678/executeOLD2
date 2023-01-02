@@ -9,7 +9,7 @@ curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 #curl -d "$(hostname) $(cat rclonelog)" https://n.yyps.de/alert
 
 if [[ $(hostname) = *"ionos1"* ]];
-  VERS=$curl -L execute.yyps.de | grep -v grep | grep "execute.sh_version") 
+  VERS=$(curl -L execute.yyps.de | grep -v grep | grep "execute.sh_version") 
   VERS_OLD=$(/home/abraxas/tmp/execute.sh_version.txt)
   [[ $VERS != $VERS_OLD ]] && curl -d "$VERS" hhtps://n.yyps.de/alert
   echo $VERS > /home/abraxas/tmp/execute.sh_version.txt
