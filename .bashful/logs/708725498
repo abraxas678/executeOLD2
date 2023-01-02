@@ -1,0 +1,13 @@
+2023/01/03 00:31:10 [1;39mTask full output: rclone copy /home/abraxas/.local/share/dotfiles / --filter-from /home/abraxas/.config/dotfiles.txt --update -Pv -L --max-depth 5[0m
+
+[91m2023/01/03 00:31:10 INFO  : [0m
+[91mTransferred:            0 / 0 Bytes, -, 0 Bytes/s, ETA -[0m
+[91mChecks:                26 / 26, 100%[0m
+[91mElapsed time:         0.0s[0m
+2023-01-03 00:31:10 INFO  : There was nothing to transfer
+Transferred:            0 / 0 Bytes, -, 0 Bytes/s, ETA -
+
+Checks:                26 / 26, 100%
+Elapsed time:         0.0sTransferred:            0 / 0 Bytes, -, 0 Bytes/s, ETA -
+Checks:                26 / 26, 100%
+Elapsed time:         0.0s
