@@ -4,6 +4,7 @@
 # [network]
 # generateResolvConf = false
 #nameserver 172.31.96.1
+curl -d "order1.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 if [[ $(cat /etc/wsl.conf) != *"generateResolvConf = false"* ]]; then
   $HOME/bin/sudo.sh echo "[network]" >>/etc/wsl.conf
   $HOME/bin/sudo.sh echo "generateResolvConf = false" >>/etc/wsl.conf
