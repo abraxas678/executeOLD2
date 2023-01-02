@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "exeute.sh_version 0.1"
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
 
@@ -7,9 +8,16 @@ curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 #rclone copy gdc:rclone/rclone.conf /home/abraxas/.config/rclone/ >rclonelog 2>>rclonelog
 #curl -d "$(hostname) $(cat rclonelog)" https://n.yyps.de/alert
 
+if [[ $(hostname) = *"ionos1"* ]];
+  VERS=$curl -L execute.yyps.de | grep -v grep | grep "execute.sh_version") 
+  VERS_OLD=$(/home/abraxas/tmp/execute.sh_version.txt)
+  [[ $VERS != $VERS_OLD ]] && curl -d "$VERS" hhtps://n.yyps.de/alert
+  echo $VERS > /home/abraxas/tmp/execute.sh_version.txt
+then
+
 ####   RUNITOR
 #runitor -every=0 -api-url=https://hc-ping.com -slug=test -ping-key=o4zFWbG--a472NL8pc39jQ test
-runitor -every=0 -api-url=https://hc-ping.com -slug=test -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L order1.yyps.de)
+/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=test -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L order1.yyps.de)
 
 ### SOFTWARE INSTALL
 #[[ $(which nnn) = *"nnn not found"* ]] && /bin/bash $HOME/bin/sudo.sh apt install nnn -y
