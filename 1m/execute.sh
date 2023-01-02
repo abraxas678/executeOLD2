@@ -1,5 +1,5 @@
 #!/bin/bash
-curl 	https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
+curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
 
 #/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/low-disk-space.sh
