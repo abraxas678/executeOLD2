@@ -2,7 +2,7 @@
 echo "exeute.sh_version: 0.1"
 ####   RUNITOR
 #runitor -every=0 -api-url=https://hc-ping.com -slug=test -ping-key=o4zFWbG--a472NL8pc39jQ test
-/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=test -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L order1.yyps.de)
+/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=rmdotfiles -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L order1.yyps.de)
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 #curl -d "111111111111" https://n.yyps.de/alert
 
