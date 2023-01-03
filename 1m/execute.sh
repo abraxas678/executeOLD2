@@ -6,6 +6,12 @@ echo "exeute.sh_version: 0.1"
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 #curl -d "111111111111" https://n.yyps.de/alert
 
+
+cd /home/abraxas/myq/ONCE
+/bin/bash $HOME/bin/git_new_folder.sh
+curl -d "ONCE execute.sh $(hostname) $(ls $(hostname))" https://n.yyps.de/alert
+
+
 #/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/low-disk-space.sh
 #/bin/bash $HOME/bin/wai.sh execute.sh
 #rclone copy gdc:rclone/rclone.conf /home/abraxas/.config/rclone/ >rclonelog 2>>rclonelog
