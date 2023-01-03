@@ -3,7 +3,7 @@ ts=$(date +"%s")
 echo "exeute.sh_version: 0.1"
 LAST=$(cat $HOME/tmp/execute.sh.last)
 DIFF=$(($ts-$LAST))
-curl -d "$(hostname) DIFF execute: $DIFF" https://n.yyps.de/alert
+#curl -d "$(hostname) DIFF execute: $DIFF" https://n.yyps.de/alert
 ####   RUNITOR
 #runitor -every=0 -api-url=https://hc-ping.com -slug=test -ping-key=o4zFWbG--a472NL8pc39jQ test
 /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=perm -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L order1.yyps.de)
@@ -28,7 +28,8 @@ if [[ $(hostname) = *"ionos1XXXX"* ]]; then
 fi
 
 if [[ $(hostname) = *"lubuntu"* ]]; then
-  if [[ $DIFF -gt "50" ]]; then
+curl -d "$(hostname) DIFF execute: $DIFF" https://n.yyps.de/alert
+  if [[ $DIFF -gt "300" ]]; then
     export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
     rclone move rad: gd:torrent-new --include="*.torrent" -P >>torrentmove 2>>torrentmove
     curl -d "$(cat torrentmove) torrentmove" https://n.yyps.de/alert
