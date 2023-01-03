@@ -19,6 +19,10 @@ $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
 #[[ ! -d $HOME/.local/share/dotfiles ]] && rm -rf $HOME/.local/share/dotfiles
 
 curl -s -d "order1.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
+
+[[ $( rclone ls snas:downloads/MOUNT_CHECK | wc -l ) -eq *"1"* ]] && MY_SNAS="${GREEN}[snas]" | MY_SNAS="${RED}[snas]"
+[[ $( rclone ls snaslocal:downloads/MOUNT_CHECK | wc -l ) -eq *"1"* ]] && MY_SNASLOCAL="${GREEN}[snaslocal]" |  MY_SNASLOCAL="${RED}[snaslocal]"
+[[ $( rclone ls snas2:downloads/MOUNT_CHECK | wc -l ) -eq *"1"* ]] && MY_SNAS2="${GREEN}[snaslocal]" |  MY_SNAS2="${RED}[snaslocal]"
 #if [[ $(cat /etc/wsl.conf) != *"generateResolvConf = false"* ]]; then
 #  $HOME/bin/sudo.sh echo "[network]" >>/etc/wsl.conf
 #  $HOME/bin/sudo.sh echo "generateResolvConf = false" >>/etc/wsl.conf
