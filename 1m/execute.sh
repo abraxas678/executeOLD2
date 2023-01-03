@@ -9,7 +9,7 @@ curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
 cd /home/abraxas/myq/ONCE
 /bin/bash $HOME/bin/git_new_folder.sh
-curl -d "ONCE execute.sh $(hostname) $(ls $(hostname))" https://n.yyps.de/alert
+#curl -d "ONCE execute.sh $(hostname) $(ls $(hostname))" https://n.yyps.de/alert
 
 
 #/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/low-disk-space.sh
