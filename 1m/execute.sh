@@ -24,6 +24,7 @@ if [[ $(hostname) = *"ionos1XXXX"* ]]; then
 fi
 
 if [[ $(hostname) = *"lubuntu"* ]]; then
+  export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
   rclone move rad: gd:torrent-new --include="*.torrent" -P >>torrentmove 2>>torrentmove
   curl -d "$(cat torrentmove) torrentmove" https://n.yyps.de/alert
   rm -f torrentmove
