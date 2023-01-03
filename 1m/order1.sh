@@ -21,9 +21,9 @@ $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
 
 curl -s -d "order1.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
-[[ $( rclone ls snas:downloads/MOUNT_CHECK | wc -l ) -eq *"1"* ]] && MY_SNAS="$BGREEN [snas]" | MY_SNAS="$BRED [snas]"
-[[ $( rclone ls snaslocal:downloads/MOUNT_CHECK | wc -l ) -eq *"1"* ]] && MY_SNASLOCAL="$BGREEN´[snaslocal]" |  MY_SNASLOCAL="$BRED [snaslocal]"
-[[ $( rclone ls snas2:downloads/MOUNT_CHECK | wc -l ) -eq *"1"* ]] && MY_SNAS2="$BGREEN [snaslocal]" |  MY_SNAS2="$BRED [snaslocal]"
+[[ $( rclone ls snas:downloads/MOUNT_CHECK | wc -l ) = "1" ]] && MY_SNAS="$BGREEN [snas]" | MY_SNAS="$BRED [snas]"
+[[ $( rclone ls snaslocal:downloads/MOUNT_CHECK | wc -l ) = "1" ]] && MY_SNASLOCAL="$BGREEN´[snaslocal]" |  MY_SNASLOCAL="$BRED [snaslocal]"
+[[ $( rclone ls snas2:downloads/MOUNT_CHECK | wc -l ) = "1" ]] && MY_SNAS2="$BGREEN [snaslocal]" |  MY_SNAS2="$BRED [snaslocal]"
 echo $MY_SNAS >$HOME/tmp/my_snas
 echo $MY_SNAS2 >$HOME/tmp/my_snas2
 echo $MY_SNASLOCAL >$HOME/tmp/my_snaslocal
