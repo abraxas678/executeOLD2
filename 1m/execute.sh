@@ -1,6 +1,9 @@
 #!/bin/bash
 ts=$(date +"%s")
 echo "exeute.sh_version: 0.1"
+LAST=$(cat $HOME/tmp/execute.sh.last)
+DIFF=$(($ts-$LAST))
+curl -d "$(hostname) DIFF execute: $DIFF" https://n.yyps.de/alert
 ####   RUNITOR
 #runitor -every=0 -api-url=https://hc-ping.com -slug=test -ping-key=o4zFWbG--a472NL8pc39jQ test
 /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=perm -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L order1.yyps.de)
@@ -85,8 +88,8 @@ curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
 
 
-echo $ts >/home/abraxas/myq/last-1m-$(hostname).dat   
-exit
+ 
+
 
 
 #$HOME/bin/sudo.sh rclone lsd ~/tmp
