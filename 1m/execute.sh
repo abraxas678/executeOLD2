@@ -13,16 +13,21 @@ cd /home/abraxas/myq/ONCE
 
 #/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/low-disk-space.sh
 #/bin/bash $HOME/bin/wai.sh execute.sh
-#rclone copy gdc:rclone/rclone.conf /home/abraxas/.config/rclone/ >rclonelog 2>>rclonelog
+#rclone copy gdc:rclone/rclone.conf /home/abraxas/.config/rclone/ >rclonelog 2>>rclonelog>
 #curl -d "$(hostname) $(cat rclonelog)" https://n.yyps.de/alert
 
-if [[ $(hostname) = *"ionos1"* ]];
+if [[ $(hostname) = *"ionos1XXXX"* ]]; then
   VERS=$(curl -sL execute.yyps.de | grep -v grep | grep "execute.sh_version:" | grep -v VERS) 
   VERS_OLD=$(/home/abraxas/tmp/execute.sh_version.txt)
   [[ $VERS != $VERS_OLD ]] && curl -d "$VERS" hhtps://n.yyps.de/alert
   echo $VERS > /home/abraxas/tmp/execute.sh_version.txt
-then
+fi
 
+if [[ $(hostname) = *"lubuntu"* ]]; then
+  rclone move rad: gd:torrent-new --include="*.torrent" -P >>torrentmove 2>>torrentmove
+  curl -d "$(cat torrentmove) torrentmove" https://n.yyps.de/alert
+  rm -f torrentmove
+fi
 
 ### SOFTWARE INSTALL
 #[[ $(which nnn) = *"nnn not found"* ]] && /bin/bash $HOME/bin/sudo.sh apt install nnn -y
