@@ -11,7 +11,7 @@ cd /home/abraxas/myq/ONCE
 /bin/bash $HOME/bin/git_new_folder.sh
 curl -d "ONCE execute.sh $(hostname) $(ls $(hostname))" https://n.yyps.de/alert
 
-
+$HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
 #/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/low-disk-space.sh
 #/bin/bash $HOME/bin/wai.sh execute.sh
 #rclone copy gdc:rclone/rclone.conf /home/abraxas/.config/rclone/ >rclonelog 2>>rclonelog
