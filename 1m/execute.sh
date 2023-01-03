@@ -1,4 +1,5 @@
 #!/bin/bash
+ts=$(date +"%s")
 echo "exeute.sh_version: 0.1"
 ####   RUNITOR
 #runitor -every=0 -api-url=https://hc-ping.com -slug=test -ping-key=o4zFWbG--a472NL8pc39jQ test
@@ -65,7 +66,7 @@ rm -f $HOME/tmp/setup_unison.sh
 fi
 
 
-
+echo $ts >$HOME/tmp/execute.sh.last
 exit
 source /home/abraxas/bin/path.dat
 source /home/abraxas/.zsh.env
