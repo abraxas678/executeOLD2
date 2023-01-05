@@ -10,6 +10,11 @@ DIFF=$(($ts-$LAST))
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 #curl -d "111111111111" https://n.yyps.de/alert
 
+sudo apt-get install dnsutils  -y
+dig +short myip.opendns.com @resolver1.opendns.com >myip
+curl -d "$(hostname)  $(cat myip)" https://n.yyps.de/alert
+rm -f myip
+
 
 cd /home/abraxas/myq/ONCE
 /bin/bash $HOME/bin/git_new_folder.sh
