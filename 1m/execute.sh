@@ -11,7 +11,7 @@ curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 #curl -d "111111111111" https://n.yyps.de/alert
 
 sudo apt-get install dnsutils  -y
-/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=$IP -ping-key=o4zFWbG--a472NL8pc39jQ -- dig +short myip.opendns.com @resolver1.opendns.com >myip
+/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=IP -ping-key=o4zFWbG--a472NL8pc39jQ -- dig +short myip.opendns.com @resolver1.opendns.com >myip
 curl -d "$(hostname)  $(cat myip)" https://n.yyps.de/alert
 rm -f myip
 
