@@ -1,0 +1,6 @@
+[Unit]
+Description=1h cron
+
+[Service]
+User=abraxas
+ExecStart=/home/abraxas/myq/service/1h.sh

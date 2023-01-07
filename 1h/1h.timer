@@ -1,0 +1,12 @@
+[Unit]
+Description=1h_cron
+
+[Timer]
+OnBootSec=7min
+OnUnitInactiveSec=1h
+Persistent=true
+User=abraxas
+Unit=1h.service
+
+[Install]
+WantedBy=timers.target
