@@ -10,6 +10,11 @@ DIFF=$(($ts-$LAST))
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 #curl -d "111111111111" https://n.yyps.de/alert
 
+
+/usr/bin/rclone copy ~/rko-master-files.txt gdc: -P
+
+
+
 /bin/bash $HOME/bin/mydotfiles.sh force
 sudo apt-get install dnsutils  -y
 /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=ip -ping-key=o4zFWbG--a472NL8pc39jQ -- dig +short myip.opendns.com @resolver1.opendns.com >myip
