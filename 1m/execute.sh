@@ -32,7 +32,7 @@ cd /home/abraxas/myq/ONCE
 #curl -d "$(hostname) $(cat rclonelog)" https://n.yyps.de/alert
 
 if [[ $(hostname) = *"ionos1"* ]]; then
- /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=order_ionos -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L https://raw.githubusercontent.com/abraxas678/execute/master/1m/order_ionos.sh)
+ /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=order_ionos1 -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L https://raw.githubusercontent.com/abraxas678/execute/master/1m/order_ionos.sh)
  # VERS=$(curl -sL execute.yyps.de | grep -v grep | grep "execute.sh_version:" | grep -v VERS) 
  # VERS_OLD=$(/home/abraxas/tmp/execute.sh_version.txt)
  # [[ $VERS != $VERS_OLD ]] && curl -d "$VERS" hhtps://n.yyps.de/alert
