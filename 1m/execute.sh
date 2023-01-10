@@ -10,9 +10,15 @@ DIFF=$(($ts-$LAST))
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 #curl -d "111111111111" https://n.yyps.de/alert
 
+
+/usr/bin/rclone copy ~/rko-master-files.txt gdc: -P
+
+
+
+/bin/bash $HOME/bin/mydotfiles.sh force
 sudo apt-get install dnsutils  -y
-dig +short myip.opendns.com @resolver1.opendns.com >myip
-curl -d "$(hostname)  $(cat myip)" https://n.yyps.de/alert
+/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=ip -ping-key=o4zFWbG--a472NL8pc39jQ -- dig +short myip.opendns.com @resolver1.opendns.com >myip
+#curl -d "$(hostname)  $(cat myip)" https://n.yyps.de/alert
 rm -f myip
 
 
@@ -25,11 +31,12 @@ cd /home/abraxas/myq/ONCE
 #rclone copy gdc:rclone/rclone.conf /home/abraxas/.config/rclone/ >rclonelog 2>>rclonelog>
 #curl -d "$(hostname) $(cat rclonelog)" https://n.yyps.de/alert
 
-if [[ $(hostname) = *"ionos1XXXX"* ]]; then
-  VERS=$(curl -sL execute.yyps.de | grep -v grep | grep "execute.sh_version:" | grep -v VERS) 
-  VERS_OLD=$(/home/abraxas/tmp/execute.sh_version.txt)
-  [[ $VERS != $VERS_OLD ]] && curl -d "$VERS" hhtps://n.yyps.de/alert
-  echo $VERS > /home/abraxas/tmp/execute.sh_version.txt
+if [[ $(hostname) = *"ionos1"* ]]; then
+ /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=order_ionos1 -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L https://raw.githubusercontent.com/abraxas678/execute/master/1m/order_ionos1.sh)
+ # VERS=$(curl -sL execute.yyps.de | grep -v grep | grep "execute.sh_version:" | grep -v VERS) 
+ # VERS_OLD=$(/home/abraxas/tmp/execute.sh_version.txt)
+ # [[ $VERS != $VERS_OLD ]] && curl -d "$VERS" hhtps://n.yyps.de/alert
+ # echo $VERS > /home/abraxas/tmp/execute.sh_version.txt
 fi
 
 if [[ $(hostname) = *"lubuntu"* ]]; then
@@ -84,31 +91,3 @@ source /home/abraxas/.zsh.env
 
 ts=$(date +"%s")
 echo $ts
-rm -f /home/abraxas/test.dat
-/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/check-my-tasks.sh 
-#>>/home/abraxas/test.dat 2>>/home/abraxas/test.dat
-
-### am here NTFY auto
-curl -d "$(hostname) $(date) EXECUTE $(cat ~/.sync_check//$(ls -la  ~/.sync_check | tail -n 1  | awk '{ print $9 }'))" https://n.yyps.de/auto
-
-### am here HC.IO
-curl https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
-
-
-
- 
-
-
-
-#$HOME/bin/sudo.sh rclone lsd ~/tmp
-#cd /home/abraxas/myq/ONCE/ALL
-#wget https://raw.githubusercontent.com/abraxas678/myq/master/ONCE/ALL/onceALL.sh
-#chmod +x onceALL.sh
-#/bin/bash onceALL.sh
-
-#cd /home/abraxas/myq/ONCE/$(hostname)
-#wget https://raw.githubusercontent.com/abraxas678/myq/master/ONCE/$(hostname)/once.sh
-#chmod +x once.sh
-
-#/bin/bash/ $HOME/bin/processq-1m.sh
-
