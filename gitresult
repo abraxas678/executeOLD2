@@ -1,0 +1,12 @@
+From github.com:abraxas678/execute
+ * branch            master     -> FETCH_HEAD
+   6e4b7eb..514f501  master     -> origin/master
+error: Your local changes to the following files would be overwritten by merge:
+	1m/order1.sh
+	1m/order_ionos1.sh
+Please commit your changes or stash them before you merge.
+error: The following untracked working tree files would be overwritten by merge:
+	1m/myshs
+Please move or remove them before you merge.
+Aborting
+Updating 6e4b7eb..514f501
