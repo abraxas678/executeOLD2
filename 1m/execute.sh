@@ -65,8 +65,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
     rclone move rad: gd:torrent-new --include="*.torrent" -P >>torrentmove 2>>torrentmove
   if [[ $DIFFio2 -gt "3600" ]]; then
  #     curl hier https://n.yyps.de/alert
-     /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=move_put -ping-key=o4zFWbG--a472NL8pc39jQ /bin/bash $HOME/bin/move-put.sh
-     echo $ts >$HOME/tmp/execute.sh.ionos2.last
+ echo $ts >$HOME/tmp/execute.sh.ionos2.last
   fi
 fi
 exit
