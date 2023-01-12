@@ -60,9 +60,9 @@ fi
 LASTio2=$(cat $HOME/tmp/execute.sh.ionos2.last)
 DIFFio2=$(($ts-$LASTio2))
 if [[ $(hostname) = *"ionos2"* ]]; then
-  curl -d "ionos2 execute.sh DIFFio2: $DIFFio2" https://n.yyps.de/alert
+ # curl -d "ionos2 execute.sh DIFFio2: $DIFFio2" https://n.yyps.de/alert
   if [[ $DIFFio2 -gt "3600" ]]; then
-      curl hier https://n.yyps.de/alert
+ #     curl hier https://n.yyps.de/alert
      /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=lubuntu -ping-key=o4zFWbG--a472NL8pc39jQ /bin/bash $HOME/bin/move-put.sh
      echo $ts >$HOME/tmp/execute.sh.ionos2.last
   fi
