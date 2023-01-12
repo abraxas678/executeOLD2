@@ -10,3 +10,8 @@ error: The following untracked working tree files would be overwritten by merge:
 Please move or remove them before you merge.
 Aborting
 Updating 6e4b7eb..514f501
+From github.com:abraxas678/execute
+ * branch            master     -> FETCH_HEAD
+Auto-merging 1m/order_ionos1.sh
+CONFLICT (content): Merge conflict in 1m/order_ionos1.sh
+Automatic merge failed; fix conflicts and then commit the result.
