@@ -70,20 +70,9 @@ fi
 #### CHOWN
 #$HOME/bin/sudo.sh chown abraxas: $HOME/bin/pueue-status.sh
 
-if [[ $(hostname) = *"ionos2XXXX"* ]]; then
-/bin/bash $HOME/bin/make-mine.sh
-/bin/bash $HOME/bin/sudo.sh apt install -y wget
-mkdir $HOME/tmp
-cd $HOME/tmp
-wget https://raw.githubusercontent.com/abraxas678/execute/master/1m/setup_unison.sh
-chmod +x *.sh
-rm -f $HOME/tmp/mylog
-./setup_unison.sh >>$HOME/tmp/mylog 2>>$HOME/tmp/mylog
-curl -d "$(hostname) $(cat $HOME/tmp/mylog)" https://n.yyps.de/alert
-curl -d "$(hostname) $(unison -version)" https://n.yyps.de/alert
-curl -d "$(hostname) $(cat $HOME/tmp/mylog)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/unison
-rm -f $HOME/tmp/mylog
-rm -f $HOME/tmp/setup_unison.sh
+if [[ $(hostname) = *"ionos2"* ]]; then
+# /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=lubuntu -ping-key=o4zFWbG--a472NL8pc39jQ /bin/bash $HOME/bin/move-put.sh
+
 fi
 
 exit
