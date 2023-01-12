@@ -9,24 +9,12 @@ DIFF=$(($ts-$LAST))
 /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=perm -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L order1.yyps.de)
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 curl -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/execute
-#curl -d "111111111111" https://n.yyps.de/alert
 
 
-/usr/bin/rclone copy ~/rko-master-files.txt gdc: -P
-
-
-
-#/bin/bash $HOME/bin/mydotfiles.sh force
-#sudo apt-get install dnsutils  -y
-/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=ip -ping-key=o4zFWbG--a472NL8pc39jQ -- dig +short myip.opendns.com @resolver1.opendns.com >myip
-#curl -d "$(hostname)  $(cat myip)" https://n.yyps.de/alert
-rm -f myip
-
-
+/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=ip -ping-key=o4zFWbG--a472NL8pc39jQ -- dig +short myip.opendns.com @resolver1.opendns.com >/home/abraxas/tmp/$hostname_myip
 cd /home/abraxas/myq/ONCE
 /bin/bash $HOME/bin/git_new_folder.sh
 #curl -d "ONCE execute.sh $(hostname) $(ls $(hostname))" https://n.yyps.de/alert
-
 #/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/low-disk-space.sh
 #/bin/bash $HOME/bin/wai.sh execute.sh
 #rclone copy gdc:rclone/rclone.conf /home/abraxas/.config/rclone/ >rclonelog 2>>rclonelog>
