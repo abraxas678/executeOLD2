@@ -1,4 +1,6 @@
 #!/bin/bash
+source /home/abraxas/bin/path.dat
+source /home/abraxas/.zsh.env
 ts=$(date +"%s")
 echo "exeute.sh_version: 0.1"
 LAST=$(cat $HOME/tmp/execute.sh.last)
@@ -29,7 +31,7 @@ if [[ $(hostname) = *"ionos1"* ]]; then
 fi
 
 if [[ $(hostname) = *"lubuntu"* ]]; then
-/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=lubuntu -ping-key=o4zFWbG--a472NL8pc39jQ --tmate
+/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=lubuntu -ping-key=o4zFWbG--a472NL8pc39jQ -- tmate
 #curl -d "$(hostname) DIFF execute: $DIFF" https://n.yyps.de/alert
   if [[ $DIFF -gt "300" ]]; then
     export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
@@ -69,8 +71,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
   fi
 fi
 exit
-source /home/abraxas/bin/path.dat
-source /home/abraxas/.zsh.env
+
 
 ts=$(date +"%s")
 echo $ts
