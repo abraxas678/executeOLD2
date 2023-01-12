@@ -16,8 +16,8 @@ curl -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/execute
 
 
 
-/bin/bash $HOME/bin/mydotfiles.sh force
-sudo apt-get install dnsutils  -y
+#/bin/bash $HOME/bin/mydotfiles.sh force
+#sudo apt-get install dnsutils  -y
 /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=ip -ping-key=o4zFWbG--a472NL8pc39jQ -- dig +short myip.opendns.com @resolver1.opendns.com >myip
 #curl -d "$(hostname)  $(cat myip)" https://n.yyps.de/alert
 rm -f myip
