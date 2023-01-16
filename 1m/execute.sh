@@ -64,10 +64,16 @@ DIFFio2=$(($ts-$LASTio2))
 if [[ $(hostname) = *"ionos2"* ]]; then
  # curl -d "ionos2 execute.sh DIFFio2: $DIFFio2" https://n.yyps.de/alert
     export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
-    rclone move rad: gd:torrent-new --include="*.torrent" -P >>torrentmove 2>>torrentmove
+    /usr/binrclone move rad: gd:torrent-new --include="*.torrent" -P >>/home/abraxas/tmp/torrentmove 2>>/home/abraxas/tmp/torrentmove
+  if [[ $DIFFio2 -gt "900" ]] && [[ $DIFFio2 -lt "970" ]]; then
+     /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P 
+  fi
+  if [[ $DIFFio2 -gt "300" ]] && [[ $DIFFio2 -lt "370" ]]; then
+     /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P 
+  fi
   if [[ $DIFFio2 -gt "3600" ]]; then
-    /bin/bash $HOME/bin/move-put.sh
- echo $ts >$HOME/tmp/execute.sh.ionos2.last
+     /bin/bash $HOME/bin/move-put.sh
+     echo $ts >$HOME/tmp/execute.sh.ionos2.last
   fi
 fi
 exit
