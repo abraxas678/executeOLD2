@@ -35,7 +35,7 @@ if [[ $(hostname) = *"lubuntu"* ]]; then
 #curl -d "$(hostname) DIFF execute: $DIFF" https://n.yyps.de/alert
   if [[ $DIFF -gt "300" ]]; then
     export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
-    rclone move rad: gd:torrent-new --include="*.torrent" -P >>torrentmove 2>>torrentmove
+   /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=lubuntu -ping-key=o4zFWbG--a472NL8pc39jQ /usr/bin/rclone move rad: gd:torrent-new --include="*.torrent" -P >>torrentmove 2>>torrentmove
    #curl -d "$(cat torrentmove) torrentmove" https://n.yyps.de/alert
     rm -f torrentmove
     echo $ts >$HOME/tmp/execute.sh.last
@@ -69,7 +69,8 @@ if [[ $(hostname) = *"ionos2"* ]]; then
      /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P 
   fi
   if [[ $DIFFio2 -gt "300" ]] && [[ $DIFFio2 -lt "370" ]]; then
-     /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P 
+      /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=lubuntu -ping-key=o4zFWbG--a472NL8pc39jQ /usr/bin/rclone move rad: gd:torrent-new --include="*.torrent" -P
+#     /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P 
   fi
   if [[ $DIFFio2 -gt "3600" ]]; then
      /bin/bash $HOME/bin/move-put.sh
