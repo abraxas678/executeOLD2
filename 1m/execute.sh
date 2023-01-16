@@ -73,6 +73,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
   fi
   if [[ $DIFFio2 -gt "3600" ]]; then
      /bin/bash $HOME/bin/move-put.sh
+     rclone copy rad: gd:a_downloads --update --fast-list -P
      echo $ts >$HOME/tmp/execute.sh.ionos2.last
   fi
 fi
