@@ -74,6 +74,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
   if [[ $DIFFio2 -gt "3600" ]]; then
      /bin/bash $HOME/bin/move-put.sh
      rclone copy rad: gd:a_downloads --update --fast-list -P
+     rclone move rad: gd:a_downloads --exclude="*.mp4" --update --fast-list -P --min-age 3d
      echo $ts >$HOME/tmp/execute.sh.ionos2.last
   fi
 fi
