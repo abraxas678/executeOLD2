@@ -1,0 +1,8 @@
+Von github.com:abraxas678/execute
+ * branch            master     -> FETCH_HEAD
+ * [neuer Branch]    master     -> origin/master
+error: Die folgenden unversionierten Dateien im Arbeitsverzeichnis würden durch
+den Merge überschrieben werden:
+	gitresult
+Bitte verschieben oder entfernen Sie diese, bevor Sie mergen.
+Abbruch
