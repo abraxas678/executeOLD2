@@ -31,7 +31,7 @@ if [[ $(hostname) = *"ionos1"* ]]; then
 fi
 
 if [[ $(hostname) = *"lubuntu"* ]]; then
-/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=lubuntu -ping-key=o4zFWbG--a472NL8pc39jQ -- tmate
+/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=special -ping-key=o4zFWbG--a472NL8pc39jQ tmate
 #curl -d "$(hostname) DIFF execute: $DIFF" https://n.yyps.de/alert
   if [[ $DIFF -gt "300" ]]; then
     export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
