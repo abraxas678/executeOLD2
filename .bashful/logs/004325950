@@ -1,0 +1,25 @@
+2023/01/03 00:36:36 [1;39mTask full output: rclone copy / /home/abraxas/.local/share/dotfiles --filter-from /home/abraxas/.config/dotfiles.txt --update -Pv -L --max-depth 5[0m
+
+2023-01-03 00:36:36 INFO  : home/abraxas/.Xauthority: Copied (replaced existing)
+Transferred:          472 / 472 Bytes, 100%, 73.690 kBytes/s, ETA 0s
+Checks:                24 / 24, 100%
+Transferred:            0 / 1, 0%
+[91m2023/01/03 00:36:36 INFO  : [0m
+[91mTransferred:      18.564k / 18.564 kBytes, 100%, 1.556 MBytes/s, ETA 0s[0m
+[91mChecks:                26 / 26, 100%[0m
+[91mTransferred:            2 / 2, 100%[0m
+Elapsed time:         0.2s
+Transferring:
+[91mElapsed time:         0.2s[0m
+ *                      home/abraxas/.Xauthority:100% /472, 0/s, -
+
+2023-01-03 00:36:36 INFO  : home/abraxas/.config/rclone/rclone.conf: Copied (replaced existing)
+Transferred:      18.564k / 18.564 kBytes, 100%, 1.793 MBytes/s, ETA 0s
+Checks:                26 / 26, 100%
+Transferred:            1 / 2, 50%
+Elapsed time:         0.2s
+Transferring:
+ *       home/abraxas/.config/rclone/rclone.conf:100% /18.104k, 0/s, -Transferred:      18.564k / 18.564 kBytes, 100%, 1.556 MBytes/s, ETA 0s
+Checks:                26 / 26, 100%
+Transferred:            2 / 2, 100%
+Elapsed time:         0.2s

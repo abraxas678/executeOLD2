@@ -1,0 +1,12 @@
+[Unit]
+Description=1m cron
+
+[Timer]
+OnBootSec=3min
+OnUnitInactiveSec=1min
+Persistent=true
+User=abraxas
+Unit=1m.service
+
+[Install]
+WantedBy=timers.target

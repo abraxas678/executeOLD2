@@ -1,0 +1,26 @@
+2023/01/03 00:31:09 [1;39mTask full output: rclone copy / /home/abraxas/.local/share/dotfiles --filter-from /home/abraxas/.config/dotfiles.txt --update -Pv -L --max-depth 5[0m
+
+2023-01-03 00:31:09 INFO  : home/abraxas/.zsh_history: Copied (replaced existing)
+Transferred:     252.618k / 254.478 kBytes, 99%, 12.718 MBytes/s, ETA 0s
+[91m2023/01/03 00:31:09 INFO  : [0m
+[91mTransferred:     254.478k / 254.478 kBytes, 100%, 10.552 MBytes/s, ETA 0s[0m
+[91mChecks:                26 / 26, 100%[0m
+[91mTransferred:            2 / 2, 100%[0m
+Checks:                24 / 24, 100%
+Transferred:            0 / 2, 0%
+[91mElapsed time:         0.3s[0m
+Elapsed time:         0.3s
+
+Transferring:
+ *                     home/abraxas/.zsh_history:100% /252.618k, 0/s, -
+ *                               home/abraxas/.z:  0% /1.859k, 0/s, -
+2023-01-03 00:31:09 INFO  : home/abraxas/.z: Copied (replaced existing)
+Transferred:     254.478k / 254.478 kBytes, 100%, 10.926 MBytes/s, ETA 0s
+Checks:                24 / 24, 100%
+Transferred:            1 / 2, 50%
+Elapsed time:         0.3s
+Transferring:
+ *                               home/abraxas/.z:100% /1.859k, 0/s, -Transferred:     254.478k / 254.478 kBytes, 100%, 10.552 MBytes/s, ETA 0s
+Checks:                26 / 26, 100%
+Transferred:            2 / 2, 100%
+Elapsed time:         0.3s
