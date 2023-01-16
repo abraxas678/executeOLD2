@@ -6,3 +6,6 @@ den Merge überschrieben werden:
 	gitresult
 Bitte verschieben oder entfernen Sie diese, bevor Sie mergen.
 Abbruch
+Von github.com:abraxas678/execute
+ * branch            master     -> FETCH_HEAD
+fatal: Verweigere den Merge von nicht zusammenhängenden Historien.
