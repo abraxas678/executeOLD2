@@ -69,7 +69,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
      /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P 
   fi
   if [[ $DIFFio2 -gt "300" ]] && [[ $DIFFio2 -lt "370" ]]; then
-      /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=lubuntu -ping-key=o4zFWbG--a472NL8pc39jQ /usr/bin/rclone move rad: gd:torrent-new --include="*.torrent" -P
+      /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=rclone -ping-key=o4zFWbG--a472NL8pc39jQ /usr/bin/rclone move rad: gd:torrent-new --include="*.torrent" -P
 #     /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P 
   fi
   if [[ $DIFFio2 -gt "3600" ]]; then
