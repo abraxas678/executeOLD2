@@ -22,6 +22,7 @@ cd /home/abraxas/myq/ONCE
 #rclone copy gdc:rclone/rclone.conf /home/abraxas/.config/rclone/ >rclonelog 2>>rclonelog>
 #curl -d "$(hostname) $(cat rclonelog)" https://n.yyps.de/alert
 
+echo IONOS1
 if [[ $(hostname) = *"ionos1"* ]]; then
  /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=order_ionos1 -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L https://raw.githubusercontent.com/abraxas678/execute/master/1m/order_ionos1.sh)
  # VERS=$(curl -sL execute.yyps.de | grep -v grep | grep "execute.sh_version:" | grep -v VERS) 
@@ -30,6 +31,7 @@ if [[ $(hostname) = *"ionos1"* ]]; then
  # echo $VERS > /home/abraxas/tmp/execute.sh_version.txt
 fi
 
+echo LUBUNTU
 if [[ $(hostname) = *"lubuntu"* ]]; then
 /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=special -ping-key=o4zFWbG--a472NL8pc39jQ tmate
 #curl -d "$(hostname) DIFF execute: $DIFF" https://n.yyps.de/alert
