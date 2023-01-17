@@ -63,7 +63,7 @@ fi
 #### CHOWN
 #$HOME/bin/sudo.sh chown abraxas: $HOME/bin/pueue-status.sh
 LASTio2=$(cat $HOME/tmp/execute.sh.ionos2.last)
-DIFFio2=$(($ts-$LASTio2))
+DIFFio2=$((ts-LASTio2))
 if [[ $(hostname) = *"ionos2"* ]]; then
  # curl -d "ionos2 execute.sh DIFFio2: $DIFFio2" https://n.yyps.de/alert
     export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
