@@ -9,14 +9,15 @@ DIFF=$(($ts-$LAST))
 #curl -d "$(hostname) DIFF execute: $DIFF" https://n.yyps.de/alert
 echo   RUNITOR
 #runitor -every=0 -api-url=https://hc-ping.com -slug=test -ping-key=o4zFWbG--a472NL8pc39jQ test
+echo order1.sh
 /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=perm -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L order1.yyps.de)
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 curl -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/execute
 
 
-/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=ip -ping-key=o4zFWbG--a472NL8pc39jQ -- dig +short myip.opendns.com @resolver1.opendns.com >/home/abraxas/tmp/$hostname_myip
-cd /home/abraxas/myq/ONCE
-/bin/bash $HOME/bin/git_new_folder.sh
+#/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=ip -ping-key=o4zFWbG--a472NL8pc39jQ -- dig +short myip.opendns.com @resolver1.opendns.com >/home/abraxas/tmp/$hostname_myip
+#cd /home/abraxas/myq/ONCE
+#/bin/bash $HOME/bin/git_new_folder.sh
 #curl -d "ONCE execute.sh $(hostname) $(ls $(hostname))" https://n.yyps.de/alert
 #/home/abraxas/bin/runitor -slug $(hostname)flex /home/abraxas/bin/low-disk-space.sh
 #/bin/bash $HOME/bin/wai.sh execute.sh
@@ -82,6 +83,11 @@ if [[ $(hostname) = *"ionos2"* ]]; then
      echo $ts >$HOME/tmp/execute.sh.ionos2.last
   fi
 fi
+
+if [[ $(hostname) = *"wsl22"* ]]; then
+  echo
+fi
+
 exit
 
 
