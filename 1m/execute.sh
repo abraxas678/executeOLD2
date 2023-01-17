@@ -91,10 +91,16 @@ if [[ $(hostname) = *"wsl22"* ]]; then
     /usr/bin/rclone move /mnt/c/Users/abrax/Downloads/ gd:torrent-new --include="*.torrent" -P 
   fi
   mv $HOME/tmp/dsize $HOME/tmp/dsizeold -f
+  TOLD=$(cat $HOME/tmp/wsl22_1h)
+  TDIFF=$((ts-TOLD))
+  if [[ $TDIFF -gt "3600" ]]; then
+     /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=wsl22 -ping-key=o4zFWbG--a472NL8pc39jQ rclone copy  /mnt/c/Users/abrax/Downloads gd:a_downloads --update -P --fast-list
+     /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=wsl22 -ping-key=o4zFWbG--a472NL8pc39jQ rclone move /mnt/c/Users/abrax/Downloads gd:a_downloads --update -P --fast-list --min-age 4d
+     echo $ts >$HOME/tmp/wsl22_1h
+  fi
 fi
 
 exit
-
 
 ts=$(date +"%s")
 echo $ts 
