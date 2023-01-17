@@ -85,7 +85,11 @@ if [[ $(hostname) = *"ionos2"* ]]; then
 fi
 
 if [[ $(hostname) = *"wsl22"* ]]; then
-  echo
+  mkdir $HOME/tmp >/dev/null 2>/dev/null
+  /usr/bin/rclone size /mnt/c/Users/abrax/Downloads --json | jq .bytes >dsize
+  if [[ "$(cat dsizeold)" != "$(cat dsize)" ]]; then
+    echo
+  fi
 fi
 
 exit
