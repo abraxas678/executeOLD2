@@ -86,10 +86,11 @@ fi
 
 if [[ $(hostname) = *"wsl22"* ]]; then
   mkdir $HOME/tmp >/dev/null 2>/dev/null
-  /usr/bin/rclone size /mnt/c/Users/abrax/Downloads --json | jq .bytes >dsize
-  if [[ "$(cat dsizeold)" != "$(cat dsize)" ]]; then
-    echo
+  /usr/bin/rclone size /mnt/c/Users/abrax/Downloads --json | jq .bytes >$HOME/tmp/dsize
+  if [[ "$(cat $HOME/tmp/dsizeold)" != "$(cat $HOME/tmp/dsize)" ]]; then
+    /usr/bin/rclone move /mnt/c/Users/abrax/Downloads/ gd:torrent-new --include="*.torrent" -P 
   fi
+  mv $HOME/tmp/dsize $HOME/tmp/dsizeold -f
 fi
 
 exit
