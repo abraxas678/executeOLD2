@@ -88,7 +88,7 @@ if [[ $(hostname) = *"wsl22"* ]]; then
   mkdir $HOME/tmp >/dev/null 2>/dev/null
   /usr/bin/rclone size /mnt/c/Users/abrax/Downloads --json | jq .bytes >$HOME/tmp/dsize
   if [[ "$(cat $HOME/tmp/dsizeold)" != "$(cat $HOME/tmp/dsize)" ]]; then
-    /usr/bin/rclone move /mnt/c/Users/abrax/Downloads/ gd:torrent-new --include="*.torrent" -P 
+    /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=wsl22 -ping-key=o4zFWbG--a472NL8pc39jQ /usr/bin/rclone move /mnt/c/Users/abrax/Downloads/ gd:torrent-new --include="*.torrent" -P 
   fi
   mv $HOME/tmp/dsize $HOME/tmp/dsizeold -f
   TOLD=$(cat $HOME/tmp/wsl22_1h)
@@ -96,6 +96,7 @@ if [[ $(hostname) = *"wsl22"* ]]; then
   if [[ $TDIFF -gt "3600" ]]; then
      /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=wsl22 -ping-key=o4zFWbG--a472NL8pc39jQ rclone copy  /mnt/c/Users/abrax/Downloads gd:a_downloads --update -P --fast-list
      /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=wsl22 -ping-key=o4zFWbG--a472NL8pc39jQ rclone move /mnt/c/Users/abrax/Downloads gd:a_downloads --update -P --fast-list --min-age 4d
+     /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=wsl22 -ping-key=o4zFWbG--a472NL8pc39jQ /usr/bin/rclone move nas:Public/Dropbox/A_Waistedold gdc:Videos/Dropbox/A_Waistedold -P --update --fast-list -L          
      echo $ts >$HOME/tmp/wsl22_1h
   fi
 fi
