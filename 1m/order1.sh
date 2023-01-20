@@ -9,6 +9,15 @@ chown $USER: /home/$USER/.ssh
 chmod 644 /home/$USER/.ssh/*.pub
 chmod 600 /home/$USER/.ssh/id*
 
+if [[ ! -f /home/abraxas/tmp/unison_update.dat ]]; then
+  cd /home/abraxas/tmp
+  curl -Ls https://raw.githubusercontent.com/abraxas678/startp/master/setup_unison.sh >/home/abraxas/tmp/setup_unison.sh
+  chmod +x *.sh
+  /bin/bash /home/abraxas/tmp/setup_unison.sh
+  curl -d "unison update $(hostname)" https://n.yyps.de/alert
+fi
+
+echo $(hostname) >> /home/abraxas/tmp/unison_update.dat
 
 $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
 
@@ -21,13 +30,13 @@ $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
 
 curl -s -d "order1.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 
-source $HOME/bin/.zsh.env
-[[ $( rclone ls snas:downloads/MOUNT_CHECK | wc -l ) = "1" ]] && MY_SNAS="$BGREEN [snas]" | MY_SNAS="$BRED [snas]"
-[[ $( rclone ls snaslocal:downloads/MOUNT_CHECK | wc -l ) = "1" ]] && MY_SNASLOCAL="$BGREEN´[snaslocal]" |  MY_SNASLOCAL="$BRED [snaslocal]"
-[[ $( rclone ls snas2:downloads/MOUNT_CHECK | wc -l ) = "1" ]] && MY_SNAS2="$BGREEN [snaslocal]" |  MY_SNAS2="$BRED [snaslocal]"
-echo $MY_SNAS >$HOME/tmp/my_snas
-echo $MY_SNAS2 >$HOME/tmp/my_snas2
-echo $MY_SNASLOCAL >$HOME/tmp/my_snaslocal
+#source $HOME/.zsh.env
+#[[ $( rclone ls snas:downloads/MOUNT_CHECK | wc -l ) = "1" ]] && MY_SNAS="$BGREEN [snas]" | MY_SNAS="$BRED [snas]"
+#[[ $( rclone ls snaslocal:downloads/MOUNT_CHECK | wc -l ) = "1" ]] && MY_SNASLOCAL="$BGREEN´[snaslocal]" |  MY_SNASLOCAL="$BRED [snaslocal]"
+#[[ $( rclone ls snas2:downloads/MOUNT_CHECK | wc -l ) = "1" ]] && MY_SNAS2="$BGREEN [snaslocal]" |  MY_SNAS2="$BRED [snaslocal]"
+#echo $MY_SNAS >$HOME/tmp/my_snas
+#echo $MY_SNAS2 >$HOME/tmp/my_snas2
+#echo $MY_SNASLOCAL >$HOME/tmp/my_snaslocal
 #if [[ $(cat /etc/wsl.conf) != *"generateResolvConf = false"* ]]; then
 #  $HOME/bin/sudo.sh echo "[network]" >>/etc/wsl.conf
 #  $HOME/bin/sudo.sh echo "generateResolvConf = false" >>/etc/wsl.conf
