@@ -2,6 +2,9 @@
 echo v 1.02
 source /home/abraxas/bin/path.dat
 source /home/abraxas/.zsh.env
+
+/bin/bash /home/abraxas/bin/clean-rclone-conf.sh
+
 ts=$(date +"%s")
 echo "exeute.sh_version: 0.2"
 LAST=$(cat $HOME/tmp/execute.sh.last)
