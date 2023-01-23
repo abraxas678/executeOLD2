@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "ORDER1: $(hostname)"
+
 source $HOME/bin/color.dat
 chmod go-w /home/$USER
 chmod 700 /home/$USER/.ssh
@@ -9,6 +11,7 @@ chown $USER: /home/$USER/.ssh
 chmod 644 /home/$USER/.ssh/*.pub
 chmod 600 /home/$USER/.ssh/id*
 
+/bin/bash $HOME/bin/update_hosts.sh
 if [[ ! -f /home/abraxas/tmp/unison_update.dat ]]; then
   cd /home/abraxas/tmp
   curl -Ls https://raw.githubusercontent.com/abraxas678/startp/master/setup_unison.sh >/home/abraxas/tmp/setup_unison.sh
