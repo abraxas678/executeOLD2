@@ -23,7 +23,7 @@ if [[ ! -f /home/abraxas/tmp/unison_update.dat ]]; then
   curl -d "unison update $(hostname)" https://n.yyps.de/alert
 fi
 
-echo $(hostname) >> /home/abraxas/tmp/unison_update.dat
+echo $(hostname)$(date) >> /home/abraxas/tmp/unison_update.dat
 
 $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
 
