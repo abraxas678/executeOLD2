@@ -68,6 +68,7 @@ LASTio2=$(cat $HOME/tmp/execute.sh.ionos2.last)
 DIFFio2=$((ts-LASTio2))
 if [[ $(hostname) = *"ionos2"* ]]; then
  curl -d "$(ps aux)" https://n.yyps.de/alert
+ [[ $(ps aux) = *"rclone move rad:mp4_favourites"* ]] && echo hallo
  # curl -d "ionos2 execute.sh DIFFio2: $DIFFio2" https://n.yyps.de/alert
     export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
     /usr/binrclone move rad: gd:torrent-new --include="*.torrent" -P >>/home/abraxas/tmp/torrentmove 2>>/home/abraxas/tmp/torrentmove
