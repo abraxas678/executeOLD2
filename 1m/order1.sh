@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "ORDER1: $(hostname)"
+curl -s -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/order1/log
 
 source $HOME/bin/color.dat
 chmod go-w /home/$USER
