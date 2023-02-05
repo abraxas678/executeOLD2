@@ -16,6 +16,7 @@ echo LASTio2 $LASTio2
 echo DIFFio2 $DIFFio2
 echo
 if [[ $(hostname) = *"ionos2"* ]]; then
+ $HOME/bin/move_tele_from_razer.sh
  [[ $(ps aux) != *"rclone move rad:mp4_favourites"* ]] && rclone move rad:mp4_favourites gdc:Videos/favourites --update --fast-list -P
  # curl -d "ionos2 execute.sh DIFFio2: $DIFFio2" https://n.yyps.de/alert
     export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
