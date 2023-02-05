@@ -1,10 +1,8 @@
 #!/bin/bash
-echo v 1.02
+echo "exeute.sh_version: 1.02"
 source /home/abraxas/bin/path.dat
 source /home/abraxas/.zsh.env
-
 ts=$(date +"%s")
-echo "exeute.sh_version: 0.2"
 
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 curl -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/execute
