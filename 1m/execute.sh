@@ -42,9 +42,9 @@ if [[ $(hostname) = *"ionos1"* ]]; then
  LAST_PBBACKUP=$(curl -sk --request GET -H 'Content-Type: application/json' --url https://pocket.yyps.de/api/collections/smarthome/records | jq '.items[] | "\(.pbbackup)"' | sed 's/\"//g')
  ts=$(date +"%s")
  DIFF=$((ts-LAST_PBBACKUP))
- curl -d $DIFF https://n.yyps.de/alert
+ #curl -d $DIFF https://n.yyps.de/alert
  if [[ $DIFF -gt "3600" ]]; then
-    curl -d "DRIN $DIFF" https://n.yyps.de/alert
+    curl -d "execute.sh ionos1 3600 $DIFF" https://n.yyps.de/alert
     cd /home/abraxas/docker/pocketbase/data
     /usr/bin/git commit -a -m auto
     /usr/bin/git push
