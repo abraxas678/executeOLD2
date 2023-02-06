@@ -2,6 +2,7 @@
 export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
 echo "exeute.sh_version: 1.02"
 source /home/abraxas/bin/path.dat
+source /home/abraxas/bin/functions.dat
 source /home/abraxas/.zsh.env
 ts=$(date +"%s")
 
@@ -17,11 +18,12 @@ echo LASTio2 $LASTio2
 echo DIFFio2 $DIFFio2
 echo
 if [[ $(hostname) = *"ionos2"* ]]; then
- $HOME/bin/move_tele_from_razer.sh
+ source /home/abraxas/bin/path.dat
+ /bin/bash /home/abraxas/bin/move_tele_from_razer.sh
  [[ $(ps aux) != *"rclone move rad:mp4_favourites"* ]] && rclone move rad:mp4_favourites gdc:Videos/favourites --update --fast-list -P
  # curl -d "ionos2 execute.sh DIFFio2: $DIFFio2" https://n.yyps.de/alert
     export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
-    /usr/binrclone move rad: gd:torrent-new --include="*.torrent" -P >>/home/abraxas/tmp/torrentmove 2>>/home/abraxas/tmp/torrentmove
+    /usr/bin/rclone move rad: gd:torrent-new --include="*.torrent" -P >>/home/abraxas/tmp/torrentmove 2>>/home/abraxas/tmp/torrentmove
   if [[ $DIFFio2 -gt "900" ]] && [[ $DIFFio2 -lt "970" ]]; then
      /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P 
   fi
