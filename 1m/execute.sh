@@ -42,7 +42,7 @@ if [[ $(hostname) = *"ionos1"* ]]; then
  LAST_PBBACKUP=$(curl -sk --request GET -H 'Content-Type: application/json' --url https://pocket.yyps.de/api/collections/smarthome/records | jq '.items[] | "\(.pbbackup)"' | sed 's/\"//g')
  ts=$(date +"%s")
  DIFF=$((ts-LAST_PBBACKUP))
- curl -d $DIFF https://n.yyps.de/alert
+ #curl -d $DIFF https://n.yyps.de/alert
  if [[ $DIFF -gt "3600" ]]; then
     curl -k --request PATCH -H 'Content-Type: application/json' -d "{\"pbbackup\": \"$ts\"}" --url https://pocket.yyps.de/api/collections/smarthome/records/h1jnz8ntuhkbfjl
     curl -L https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/pbbackup
