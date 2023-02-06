@@ -43,6 +43,9 @@ if [[ $(hostname) = *"ionos1"* ]]; then
  ts=$(date +"%s")
  DIFF=$((ts-LAST_PBBACKUP))
  curl -d $DIFF https://n.yyps.de/alert
+ if [[ $DIFF -gt "360000" ]]; then
+    curl -k --request PATCH -H 'Content-Type: application/json' -d "{\"pbbackup\": \"$ts\"}" --url https://pocket.yyps.de/api/collections/smarthome/records/h1jnz8ntuhkbfjl
+ fi
  /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=order_ionos1 -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -L https://raw.githubusercontent.com/abraxas678/execute/master/1m/order_ionos1.sh)
  # VERS=$(curl -sL execute.yyps.de | grep -v grep | grep "execute.sh_version:" | grep -v VERS) 
  # VERS_OLD=$(/home/abraxas/tmp/execute.sh_version.txt)
