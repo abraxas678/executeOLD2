@@ -48,6 +48,7 @@ if [[ $(hostname) = *"ionos1"* ]]; then
     cd /home/abraxas/docker/pocketbase/data
     git commit -a -m auto
     git push
+    /usr/bin/restic backup /home/abraxas/docker/pocketbase/data --tag pb,keep -r rclone:gd:restic2
     curl -L https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/pbbackup
     curl -k --request PATCH -H 'Content-Type: application/json' -d "{\"pbbackup\": \"$ts\"}" --url https://pocket.yyps.de/api/collections/smarthome/records/h1jnz8ntuhkbfjl
  fi
