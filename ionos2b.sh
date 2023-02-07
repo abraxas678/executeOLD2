@@ -1,5 +1,6 @@
 #!/bin/bash
 echo; echo IONOS2b
+/bin/bash $HOME/bin/sudo.sh chown abraxas: -R /home/abraxas
 echo 
 echo IONOS2
 LASTio2=$(cat $HOME/tmp/execute.sh.ionos2.last)
