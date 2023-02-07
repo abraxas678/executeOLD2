@@ -15,7 +15,8 @@ if [[ $(hostname) = *"ionos2"* ]]; then
  echo MOVE TELE
  echo "========="
  #curl -d "move tele from razer" https://n.yyps.de/alert
- /bin/bash /home/abraxas/bin/move_tele_from_razer.sh
+ # /bin/bash /home/abraxas/bin/move_tele_from_razer.sh
+ source /home/abraxas/bin/move_tele_from_razer.sh
  echo; echo MOVE RAD FAVORITES
  echo "=================="
  [[ $(ps aux) != *"rclone move rad:mp4_favourites"* ]] && rclone move rad:mp4_favourites gdc:Videos/favourites --update --fast-list -P
