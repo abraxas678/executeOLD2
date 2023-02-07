@@ -27,6 +27,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
      SIZE_RAD_TELE=$(/usr/bin/rclone size rad:Telegram\ Desktop)
      SIZE_GDCV=$(/usr/bin/rclone size gdcv:)
      SIZE_RAD=$(/usr/bin/rclone size rad:)
+     curl -d "SIZE_RAD_TELE $SIZE_RAD_TELE \n SIZE_GDCV $SIZE_GDCV \n SIZE_RAD $SIZE_RAD" -H "title stats" https://n.yyps.de/alert
   fi
 ### 5min
   if [[ $DIFFio2 -gt "300" ]] && [[ $DIFFio2 -lt "370" ]]; then
