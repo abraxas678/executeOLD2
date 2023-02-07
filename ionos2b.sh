@@ -13,8 +13,10 @@ if [[ $(hostname) = *"ionos2"* ]]; then
  source /home/abraxas/bin/path.dat
  echo
  echo MOVE TELE
+ echo "========="
  /bin/bash /home/abraxas/bin/move_tele_from_razer.sh
  echo; echo MOVE RAD FAVORITES
+ echo "=================="
  [[ $(ps aux) != *"rclone move rad:mp4_favourites"* ]] && rclone move rad:mp4_favourites gdc:Videos/favourites --update --fast-list -P
  # curl -d "ionos2 execute.sh DIFFio2: $DIFFio2" https://n.yyps.de/alert
     export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
