@@ -20,15 +20,21 @@ if [[ $(hostname) = *"ionos2"* ]]; then
     export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
     echo; echo MOVE TORRENT 1
     /usr/bin/rclone move rad: gd:torrent-new --include="*.torrent" -P >>/home/abraxas/tmp/torrentmove 2>>/home/abraxas/tmp/torrentmove
+### 15min
   if [[ $DIFFio2 -gt "900" ]] && [[ $DIFFio2 -lt "970" ]]; then
      echo; echo MOVE TORRENT 2
-     /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P 
+     /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P
+     SIZE_RAD_TELE=$(/usr/bin/rclone size rad:Telegram\ Desktop)
+     SIZE_GDCV=$(/usr/bin/rclone size gdcv:)
+     SIZE_RAD=$(/usr/bin/rclone size rad:)
   fi
+### 5min
   if [[ $DIFFio2 -gt "300" ]] && [[ $DIFFio2 -lt "370" ]]; then
        echo; echo MOVE TORRENT 3
       /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=rclone -ping-key=o4zFWbG--a472NL8pc39jQ /usr/bin/rclone move rad: gd:torrent-new --include="*.torrent" -P
 #     /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P 
   fi
+### 1h
   if [[ $DIFFio2 -gt "3600" ]]; then
      echo; echo MOVE PUT
      /bin/bash $HOME/bin/move-put.sh
