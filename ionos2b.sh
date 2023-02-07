@@ -14,7 +14,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
  echo
  echo MOVE TELE
  echo "========="
- curl -d "move tele from razer" https://n.yyps.de/alert
+ #curl -d "move tele from razer" https://n.yyps.de/alert
  /bin/bash /home/abraxas/bin/move_tele_from_razer.sh
  echo; echo MOVE RAD FAVORITES
  echo "=================="
