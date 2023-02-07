@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo; echo IONOS2b
 echo 
 echo IONOS2
 LASTio2=$(cat $HOME/tmp/execute.sh.ionos2.last)
@@ -38,3 +38,4 @@ if [[ $(hostname) = *"ionos2"* ]]; then
      echo $ts >$HOME/tmp/execute.sh.ionos2.last
   fi
 fi
+echo; echo ENDE IONOS2b
