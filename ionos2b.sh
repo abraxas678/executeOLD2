@@ -28,7 +28,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
      SIZE_GDCV=$(/usr/bin/rclone size gdcv:)
      SIZE_RAD=$(/usr/bin/rclone size rad:)
      curl -H "Content-Type: application/json" -X POST -d '{ \"size_gdcv\":\"$SIZE_GDCV\",\"size_rad\":\"$SIZE_RAD\",\"size_rad_tele\":\"$SIZE_RAD_TELE\" }" 'https://main-pocketbase.mi04yg.easypanel.host/api/collections/stats/records'
-     curl -d "SIZE_RAD_TELE $SIZE_RAD_TELE \n SIZE_GDCV $SIZE_GDCV \n SIZE_RAD $SIZE_RAD" -H "title stats" https://n.yyps.de/alert
+     curl -d "SIZE_RAD_TELE $SIZE_RAD_TELE \n SIZE_GDCV $SIZE_GDCV \n SIZE_RAD $SIZE_RAD" -H "title: stats" https://n.yyps.de/alert
   fi
 ### 5min
   if [[ $DIFFio2 -gt "300" ]] && [[ $DIFFio2 -lt "370" ]]; then
