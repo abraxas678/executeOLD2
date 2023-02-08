@@ -55,4 +55,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
      echo $ts >$HOME/tmp/execute.sh.ionos2.last
   fi
 fi
+
+echo $COUNTER >/home/abraxas/docker/www/ionos2b.counter
 echo; echo ENDE IONOS2b
+
