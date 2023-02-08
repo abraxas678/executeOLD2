@@ -1,5 +1,8 @@
 #!/bin/bash
 echo; echo IONOS2b
+COUNTER=$(cat /home/abraxas/docker/www/ionos2b.counter)
+COUNTER=$((COUNTER+1))
+echo COUNTER $COUNTER
 /bin/bash $HOME/bin/sudo.sh chown abraxas: -R /home/abraxas
 echo 
 echo IONOS2
