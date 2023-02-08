@@ -3,6 +3,7 @@ echo; echo IONOS2b
 /bin/bash $HOME/bin/sudo.sh chown abraxas: -R /home/abraxas
 echo 
 echo IONOS2
+ts=$(date +"%s")
 LASTio2=$(cat $HOME/tmp/execute.sh.ionos2.last)
 DIFFio2=$((ts-LASTio2))
 echo
