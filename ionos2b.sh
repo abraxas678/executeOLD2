@@ -32,7 +32,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
   if [[ $DIFFio2 -gt "900" ]] && [[ $DIFFio2 -lt "970" ]]; then
      echo; echo MOVE TORRENT 2
      /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P
-     SIZE_RAD_TELE=$(/usr/bin/rclone size rad:Telegram\ Desktop --json | jq ".bytes")
+     SIZE_RAD_TELE=$(/usr/bin/rclone size rad:'Telegram Desktop' --json | jq ".bytes")
      SIZE_GDCV=$(/usr/bin/rclone size gdcv: --json | jq ".bytes")
      SIZE_RAD=$(/usr/bin/rclone size rad: --json | jq ".bytes")
      curl -H "Content-Type: application/json" -X POST -d "{ \"size_gdcv\":\"$SIZE_GDCV\",\"size_rad\":\"$SIZE_RAD\",\"size_rad_tele\":\"$SIZE_RAD_TELE\" }" 'https://main-pocketbase.mi04yg.easypanel.host/api/collections/stats/records'
