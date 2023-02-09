@@ -25,7 +25,7 @@ case $1 in
           $RICH --print '$1 UPDATE -- $2 collection -- $3 field -- $4 ID  -- $5 put: field-content' -s "#777777"
 esac
 }
-curl -d "pb test $(pb get scripting ionos215m  | awk '{ print $2 }')" https://n.yyps.de/alert
+#curl -d "pb test $(pb get scripting ionos215m  | awk '{ print $2 }')" https://n.yyps.de/alert
 COUNTER=$(cat /home/abraxas/docker/www/ionos2b.counter)
 COUNTER=$((COUNTER+1))
 echo COUNTER $COUNTER
