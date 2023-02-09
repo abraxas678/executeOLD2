@@ -69,6 +69,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
 
 ### 15min
   if [[ $DIFF15m -gt "900" ]]; then
+     echo START 15m
      echo; echo MOVE TORRENT 2
      /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P
      SIZE_RAD_TELE=$(/usr/bin/rclone size rad:'Telegram Desktop' --json | jq ".bytes")
@@ -85,6 +86,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
 
 ### 1h
   if [[ $DIFF1h -gt "3600" ]]; then
+     echo START 1h
      echo; echo MOVE PUT
      /bin/bash $HOME/bin/move-put.sh
      echo; echo UPLOAD RAD
