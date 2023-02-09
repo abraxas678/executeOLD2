@@ -84,7 +84,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
 
 
 ### 1h
-  if [[ $DIFFio2 -gt "3600" ]]; then
+  if [[ $DIFF1h -gt "3600" ]]; then
      echo; echo MOVE PUT
      /bin/bash $HOME/bin/move-put.sh
      echo; echo UPLOAD RAD
@@ -92,6 +92,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
      echo; echo MOVE RAD GD
      rclone move rad: gd:a_downloads --exclude="*.mp4" --update --fast-list -P --min-age 3d
      echo $ts >$HOME/tmp/execute.sh.ionos2.last
+     pb update scripting ionos21h 2595zja8d5mmq2n $ts
   fi
 fi
 
