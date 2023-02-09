@@ -5,7 +5,7 @@ case $1 in
         get)
 #         echo get
 #          echo "https://pocket.yyps.de/api/collections/$2/records | jq '.items[] | \"\(.$3)"'"
-          curl -sk --request GET -H 'Content-Type: application/json' --url https://pocket.yyps.de/api/collections/$2/records | jq ".items[] | \"\(.id) \(.$3) \(.created) \(.updated)\""
+          curl -sk --request GET -H 'Content-Type: application/json' --url https://pocket.yyps.de/api/collections/$2/records | jq ".items[] | \"\(.$3)\"" | sed 's/\"//g'
           ;;
 
         put)
