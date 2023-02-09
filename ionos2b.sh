@@ -1,5 +1,9 @@
 #!/bin/bash
 echo; echo IONOS2b
+pb(){
+  #  $RICH --print '$1 UPDATE -- $2 collection -- $3 field -- $4 ID  -- $5 put: field-content' -s "#777777"
+  curl -k --request PATCH -H 'Content-Type: application/json' -d "{\"$3\": \"$5\"}" --url https://pocket.yyps.de/api/collections/$2/records/$4
+}
 COUNTER=$(cat /home/abraxas/docker/www/ionos2b.counter)
 COUNTER=$((COUNTER+1))
 echo COUNTER $COUNTER
