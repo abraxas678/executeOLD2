@@ -52,20 +52,18 @@ echo DIFF1h $DIFF1h
 
 if [[ $(hostname) = *"ionos2"* ]]; then
  source /home/abraxas/bin/path.dat
- echo
- echo MOVE TELE
- echo "========="
+# echo
+# echo MOVE TELE
+# echo "========="
  #curl -d "move tele from razer" https://n.yyps.de/alert
  # /bin/bash /home/abraxas/bin/move_tele_from_razer.sh
- source /home/abraxas/bin/move_tele_from_razer.sh
- echo; echo MOVE RAD FAVORITES
- echo "=================="
- [[ $(ps aux) != *"rclone move rad:mp4_favourites"* ]] && rclone move rad:mp4_favourites gdc:Videos/favourites --update --fast-list -P
- # curl -d "ionos2 execute.sh DIFFio2: $DIFFio2" https://n.yyps.de/alert
-    export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
-    echo; echo MOVE TORRENT 1
-    /usr/bin/rclone move rad: gd:torrent-new --include="*.torrent" -P >>/home/abraxas/tmp/torrentmove 2>>/home/abraxas/tmp/torrentmove
+# source /home/abraxas/bin/move_tele_from_razer.sh
+# echo; echo MOVE RAD FAVORITES
+## echo "=================="
+# [[ $(ps aux) != *"rclone move rad:mp4_favourites"* ]] && rclone move rad:mp4_favourites gdc:Videos/favourites --update --fast-list -P
 
+ export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
+   
 
 ### 15min
   if [[ $DIFF15m -gt "900" ]]; then
