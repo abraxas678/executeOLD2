@@ -96,6 +96,6 @@ if [[ $(hostname) = *"ionos2"* ]]; then
   fi
 fi
 
-echo $COUNTER >/home/abraxas/docker/www/ionos2b.counter
+#echo $COUNTER >/home/abraxas/docker/www/ionos2b.counter
 echo; echo ENDE IONOS2b
 
