@@ -26,9 +26,9 @@ case $1 in
 esac
 }
 #curl -d "pb test $(pb get scripting ionos215m  | awk '{ print $2 }')" https://n.yyps.de/alert
-COUNTER=$(cat /home/abraxas/docker/www/ionos2b.counter)
-COUNTER=$((COUNTER+1))
-echo COUNTER $COUNTER
+#COUNTER=$(cat /home/abraxas/docker/www/ionos2b.counter)
+#COUNTER=$((COUNTER+1))
+#echo COUNTER $COUNTER
 /bin/bash $HOME/bin/sudo.sh chown abraxas: -R /home/abraxas
 echo 
 echo IONOS2
@@ -39,6 +39,16 @@ echo
 echo LASTio2 $LASTio2
 echo DIFFio2 $DIFFio2
 echo
+LAST15m=$(pb get scripting ionos215m  | awk '{ print $2 }')
+LAST1h=$(pb get scripting ionos21h  | awk '{ print $2 }')
+
+DIFF15m=$((ts-LAST15m))
+DIFF1h=$((ts-LAST1h))
+
+echo DIFF15m $DIFF15m
+echo DIFF1h $DIFF1h
+
+
 if [[ $(hostname) = *"ionos2"* ]]; then
  source /home/abraxas/bin/path.dat
  echo
