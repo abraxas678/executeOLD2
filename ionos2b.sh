@@ -34,8 +34,8 @@ echo
 echo IONOS2
 ts=$(date +"%s")
 
-LASTio2=$(cat $HOME/tmp/execute.sh.ionos2.last)
-DIFFio2=$((ts-LASTio2))
+#LASTio2=$(cat $HOME/tmp/execute.sh.ionos2.last)
+#DIFFio2=$((ts-LASTio2))
 #echo
 #echo LASTio2 $LASTio2
 #echo DIFFio2 $DIFFio2
@@ -49,7 +49,6 @@ DIFF1h=$((ts-LAST1h))
 echo DIFF15m $DIFF15m
 echo DIFF1h $DIFF1h
 
-
 if [[ $(hostname) = *"ionos2"* ]]; then
  source /home/abraxas/bin/path.dat
 # echo
@@ -62,20 +61,21 @@ if [[ $(hostname) = *"ionos2"* ]]; then
 ## echo "=================="
 # [[ $(ps aux) != *"rclone move rad:mp4_favourites"* ]] && rclone move rad:mp4_favourites gdc:Videos/favourites --update --fast-list -P
 
- export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
-   
+export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
 
 ### 15min
   if [[ $DIFF15m -gt "900" ]]; then
      echo START 15m
-     echo; echo MOVE TORRENT 2
-     /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P
+     echo; echo "FOLDER SIZES:"
+           echo "============="
      SIZE_RAD_TELE=$(/usr/bin/rclone size rad:'Telegram Desktop' --json | jq ".bytes")
      SIZE_GDCV=$(/usr/bin/rclone size gdcv: --json | jq ".bytes")
      SIZE_RAD=$(/usr/bin/rclone size rad: --json | jq ".bytes")
      curl -H "Content-Type: application/json" -X POST -d "{ \"size_gdcv\":\"$SIZE_GDCV\",\"size_rad\":\"$SIZE_RAD\",\"size_rad_tele\":\"$SIZE_RAD_TELE\" }" 'https://main-pocketbase.mi04yg.easypanel.host/api/collections/stats/records'
      curl -d "SIZE_RAD_TELE $SIZE_RAD_TELE \n SIZE_GDCV $SIZE_GDCV \n SIZE_RAD $SIZE_RAD" -H "title: stats" https://n.yyps.de/alert
-     echo; echo MOVE TORRENT 3
+    
+     echo; echo "MOVE TORRENT:"
+           echo "============="
      /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=rclone -ping-key=o4zFWbG--a472NL8pc39jQ /usr/bin/rclone move rad: gd:torrent-new --include="*.torrent" -P
 #     /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P
      pb update scripting ionos215m 2595zja8d5mmq2n $ts
