@@ -1,8 +1,29 @@
 #!/bin/bash
 echo; echo IONOS2b
 pb(){
-  #  $RICH --print '$1 UPDATE -- $2 collection -- $3 field -- $4 ID  -- $5 put: field-content' -s "#777777"
-  curl -k --request PATCH -H 'Content-Type: application/json' -d "{\"$3\": \"$5\"}" --url https://pocket.yyps.de/api/collections/$2/records/$4
+case $1 in
+        get)
+#         echo get
+#          echo "https://pocket.yyps.de/api/collections/$2/records | jq '.items[] | \"\(.$3)"'"
+          curl -sk --request GET -H 'Content-Type: application/json' --url https://pocket.yyps.de/api/collections/$2/records | jq ".items[] | \"\(.id) \(.$3) \(.created) \(.updated)\""
+          ;;
+
+        put)
+          echo put
+          curl -k --request POST -H 'Content-Type: application/json' -d "{\"$3\": \"$4\"}" --url https://pocket.yyps.de/api/collections/$2/records
+          ;;
+        put3)
+          echo put
+          curl -k --request POST -H 'Content-Type: application/json' -d "{\"$3\": \"$4\",\"$5\": \"$6\",\"$7\": \"$8\"}" --url https://pocket.yyps.de/api/collections/$2/records
+          ;;
+        update)
+          echo "-d \"{\\"$3\\": \\"$5\\"}\" --url https://pocket.yyps.de/api/collections/$2/records/$4"
+          curl -k --request PATCH -H 'Content-Type: application/json' -d "{\"$3\": \"$5\"}" --url https://pocket.yyps.de/api/collections/$2/records/$4
+          ;;
+        *)
+          $RICH --print '$1 put/get -- $2 collection -- $3 field -- $4 put: field-content' -s "#777777"
+          $RICH --print '$1 UPDATE -- $2 collection -- $3 field -- $4 ID  -- $5 put: field-content' -s "#777777"
+esac
 }
 COUNTER=$(cat /home/abraxas/docker/www/ionos2b.counter)
 COUNTER=$((COUNTER+1))
