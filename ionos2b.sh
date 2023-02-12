@@ -66,13 +66,13 @@ export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh
 ### 15min
   if [[ $DIFF15m -gt "900" ]]; then
      echo START 15m
-     echo; echo "FOLDER SIZES:"
-           echo "============="
-     SIZE_RAD_TELE=$(/usr/bin/rclone size rad:'Telegram Desktop' --json | jq ".bytes")
-     SIZE_GDCV=$(/usr/bin/rclone size gdcv: --json | jq ".bytes")
-     SIZE_RAD=$(/usr/bin/rclone size rad: --json | jq ".bytes")
-     curl -H "Content-Type: application/json" -X POST -d "{ \"size_gdcv\":\"$SIZE_GDCV\",\"size_rad\":\"$SIZE_RAD\",\"size_rad_tele\":\"$SIZE_RAD_TELE\" }" 'https://main-pocketbase.mi04yg.easypanel.host/api/collections/stats/records'
-     curl -d "SIZE_RAD_TELE $SIZE_RAD_TELE \n SIZE_GDCV $SIZE_GDCV \n SIZE_RAD $SIZE_RAD" -H "title: stats" https://n.yyps.de/alert
+   #  echo; echo "FOLDER SIZES:"
+    #       echo "============="
+    # SIZE_RAD_TELE=$(/usr/bin/rclone size rad:'Telegram Desktop' --json | jq ".bytes")
+    # SIZE_GDCV=$(/usr/bin/rclone size gdcv: --json | jq ".bytes")
+   #  SIZE_RAD=$(/usr/bin/rclone size rad: --json | jq ".bytes")
+   #  curl -H "Content-Type: application/json" -X POST -d "{ \"size_gdcv\":\"$SIZE_GDCV\",\"size_rad\":\"$SIZE_RAD\",\"size_rad_tele\":\"$SIZE_RAD_TELE\" }" 'https://main-pocketbase.mi04yg.easypanel.host/api/collections/stats/records'
+   #  curl -d "SIZE_RAD_TELE $SIZE_RAD_TELE \n SIZE_GDCV $SIZE_GDCV \n SIZE_RAD $SIZE_RAD" -H "title: stats" https://n.yyps.de/alert
     
      echo; echo "MOVE TORRENT:"
            echo "============="
