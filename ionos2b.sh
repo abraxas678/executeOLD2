@@ -89,7 +89,7 @@ export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh
      /bin/bash $HOME/bin/move-put.sh
      echo; echo UPLOAD RAD
      output_copy_rad=$(rclone copy rad: gd:a_downloads --update --fast-list -P 2>&1)
-     curl -d "$output_copy_rad" https://n.yyps.de/alert
+     #curl -d "$output_copy_rad" https://n.yyps.de/alert
      echo; echo MOVE RAD GD
      rclone move rad: gd:a_downloads --exclude="*.mp4" --update --fast-list -P --min-age 3d
      echo $ts >$HOME/tmp/execute.sh.ionos2.last
