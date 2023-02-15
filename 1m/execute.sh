@@ -25,7 +25,7 @@ if [[ $(hostname) = *"ionos1"* ]]; then
  DIFF=$((ts-LAST_PBBACKUP))
  #curl -d $DIFF https://n.yyps.de/alert
  if [[ $DIFF -gt "3600" ]]; then
-    curl -d "execute.sh ionos1 3600 $DIFF" https://n.yyps.de/alert
+   # curl -d "execute.sh ionos1 3600 $DIFF" https://n.yyps.de/alert
     cd /home/abraxas/docker/pocketbase/data
     /usr/bin/git commit -a -m auto
     /usr/bin/git push
