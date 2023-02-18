@@ -17,7 +17,16 @@ if [[ $COUNT > "0" ]]; then
      mv /home/abraxas/myq/ONCE/ALL/$line /home/abraxas/myq/ONCE/ALL/process_me/$line$ts.sh
    done
 fi
-
+cd /home/abraxas/myq/ONCE/ALL/process_me
+COUNT=$(rclone lsf /home/abraxas/myq/ONCE/ALL/process_me --files-only | wc -l)
+if [[ $COUNT > "0" ]]; then
+  for line in $(rclone lsf /home/abraxas/myq/ONCE/ALL/process_me --files-only); do
+     if [[ $(rclone lsf /home/abraxas/myq/ONCE/ALL/done/$(hostname)/$line | wc -l) = "0" ]]; then
+       /bin/bash /home/abraxas/myq/ONCE/ALL/process_me/$line
+       mv /home/abraxas/myq/ONCE/ALL/process_me/$line /home/abraxas/myq/ONCE/ALL/done/$(hostname)/$line 
+     fi
+  done
+fi
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 curl -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/execute
 
