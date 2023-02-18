@@ -12,6 +12,7 @@ cd /home/abraxas/myq/ONCE/ALL
 ts=$(date +"%s")
 COUNT=$(rclone lsf /home/abraxas/myq/ONCE/ALL --include="*.sh" --files-only | wc -l)
 if [[ $COUNT > "0" ]]; then
+   chmod +x *.sh
    for line in $(rclone lsf . --include="*.sh" --files-only); do
      mv $line process_me/$line$ts.sh
    done
