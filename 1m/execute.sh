@@ -14,7 +14,7 @@ sudo mkdir /home/mnt/snas/homes >/dev/null 2>/dev/null
 [[ ! -f /home/mnt/snas/homes/abraxas/MOUNT_CHECK ]] && sudo chown $myuser: -R /home/mnt/snas
 $RICH -u --print "MOUNT SNAS HOMES"
 echo 'pueue add -g mount -- $HOME/bin/sudo.sh mount -t nfs snas:volume1/homes /home/mnt/snas/homes'
-pueue add -g mount -- $HOME/bin/sudo.sh mount -t nfs snas:volume1/homes/abraxas/mnt /home/abraxas/mnt
+pueue add -g mount -- $HOME/bin/sudo.sh mount -t nfs snas:volume1/homes/abraxas/myq /home/abraxas/myq
 fi
 cd /home/abraxas/myq/ONCE/ALL
 ts=$(date +"%s")
