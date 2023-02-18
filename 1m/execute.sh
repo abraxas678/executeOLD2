@@ -26,6 +26,7 @@ if [[ $COUNT > "0" ]]; then
      mv /home/abraxas/myq/ONCE/ALL/$line /home/abraxas/myq/ONCE/ALL/process_me/$line$ts.sh
    done
 fi
+mkdir /home/abraxas/myq/ONCE/ALL/done/$(hostname) >/dev/null 2>/dev/null
 cd /home/abraxas/myq/ONCE/ALL/process_me
 COUNT=$(rclone lsf /home/abraxas/myq/ONCE/ALL/process_me --files-only | wc -l)
 if [[ $COUNT > "0" ]]; then
