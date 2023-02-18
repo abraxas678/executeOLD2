@@ -7,6 +7,17 @@ source /home/abraxas/bin/functions.dat
 source /home/abraxas/.zsh.env
 ts=$(date +"%s")
 
+#### new sh for ALL
+cd /home/abraxas/myq/ONCE/ALL
+ts=$(date +"%s")
+COUNT=$(rclone lsf /home/abraxas/myq/ONCE/ALL --include="*.sh" --files-only | wc -l)
+if [[ $COUNT > "0" ]]; then
+   for line in $(rclone lsf . --include="*.sh" --files-only); do
+     mv $line process_me/$line$ts.sh
+   done
+
+fi
+
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 curl -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/execute
 
