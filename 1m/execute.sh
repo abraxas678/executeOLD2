@@ -13,10 +13,9 @@ ts=$(date +"%s")
 COUNT=$(rclone lsf /home/abraxas/myq/ONCE/ALL --include="*.sh" --files-only | wc -l)
 if [[ $COUNT > "0" ]]; then
    chmod +x *.sh
-   for line in $(rclone lsf . --include="*.sh" --files-only); do
-     mv $line process_me/$line$ts.sh
+   for line in $(rclone lsf  /home/abraxas/myq/ONCE/ALL --include="*.sh" --files-only); do
+     mv /home/abraxas/myq/ONCE/ALL/$line /home/abraxas/myq/ONCE/ALL/process_me/$line$ts.sh
    done
-
 fi
 
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
