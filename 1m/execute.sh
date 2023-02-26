@@ -8,7 +8,8 @@ source /home/abraxas/.zsh.env
 ts=$(date +"%s")
 
 #### new sh for ALL
-$(which unison) new -batch
+# $(which unison) new -batch
+
 if [[ $(rclone lsf /home/mnt/snas/homes/abraxas/myq/MOUNT_CHECK --files-only | wc -l) = "0" ]]; then
 sudo mkdir /home/mnt/snas >/dev/null 2>/dev/null
 sudo mkdir /home/mnt/snas/homes >/dev/null 2>/dev/null
@@ -17,6 +18,7 @@ $RICH -u --print "MOUNT SNAS HOMES"
 echo 'pueue add -g mount -- $HOME/bin/sudo.sh mount -t nfs snas:volume1/homes /home/mnt/snas/homes'
 pueue add -g mount -- $HOME/bin/sudo.sh mount -t nfs snas:volume1/homes/abraxas/myq /home/abraxas/myq
 fi
+
 cd /home/abraxas/myq/ONCE/ALL
 ts=$(date +"%s")
 COUNT=$(rclone lsf /home/abraxas/myq/ONCE/ALL --include="*.sh" --files-only | wc -l)
@@ -26,6 +28,7 @@ if [[ $COUNT > "0" ]]; then
      mv /home/abraxas/myq/ONCE/ALL/$line /home/abraxas/myq/ONCE/ALL/process_me/$line$ts.sh
    done
 fi
+
 mkdir /home/abraxas/myq/ONCE/ALL/done/$(hostname) >/dev/null 2>/dev/null
 cd /home/abraxas/myq/ONCE/ALL/process_me
 COUNT=$(rclone lsf /home/abraxas/myq/ONCE/ALL/process_me --files-only | wc -l)
@@ -37,6 +40,7 @@ if [[ $COUNT > "0" ]]; then
      fi
   done
 fi
+
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 curl -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/execute
 
