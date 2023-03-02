@@ -19,3 +19,4 @@ echo IONOS1b.sh
  # VERS_OLD=$(/home/abraxas/tmp/execute.sh_version.txt)
  # [[ $VERS != $VERS_OLD ]] && curl -d "$VERS" hhtps://n.yyps.de/alert
  # echo $VERS > /home/abraxas/tmp/execute.sh_version.txt
+ $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
