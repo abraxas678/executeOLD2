@@ -1,5 +1,6 @@
 #!/bin/bash
 echo IONOS1b.sh
+ $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
  LAST_PBBACKUP=$(curl -sk --request GET -H 'Content-Type: application/json' --url https://pocket.yyps.de/api/collections/smarthome/records | jq '.items[] | "\(.pbbackup)"' | sed 's/\"//g')
  ts=$(date +"%s")
  DIFF=$((ts-LAST_PBBACKUP))
@@ -19,4 +20,4 @@ echo IONOS1b.sh
  # VERS_OLD=$(/home/abraxas/tmp/execute.sh_version.txt)
  # [[ $VERS != $VERS_OLD ]] && curl -d "$VERS" hhtps://n.yyps.de/alert
  # echo $VERS > /home/abraxas/tmp/execute.sh_version.txt
- $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
+
