@@ -54,7 +54,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
 fi
 
 echo IONOS2
-if [[ $(hostname) = *"ionos2"* ]]; then
+if [[ $(hostname) = *"ionos1"* ]]; then
 /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=ionos1b -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -sL https://raw.githubusercontent.com/abraxas678/execute/master/ionos1b.sh)
 fi
 
