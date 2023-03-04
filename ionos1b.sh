@@ -4,8 +4,10 @@ echo IONOS1b.sh
  LAST_PBBACKUP=$(curl -sk --request GET -H 'Content-Type: application/json' --url https://pocket.yyps.de/api/collections/smarthome/records | jq '.items[] | "\(.pbbackup)"' | sed 's/\"//g')
  ts=$(date +"%s")
  DIFF=$((ts-LAST_PBBACKUP))
+ echo DIFF $DIFF
  #curl -d $DIFF https://n.yyps.de/alert
  if [[ $DIFF -gt "3600" ]]; then
+   echo DIFF IF LOOP ENTERED
    # curl -d "execute.sh ionos1 3600 $DIFF" https://n.yyps.de/alert
     cd /home/abraxas/docker/pocketbase/data
     /usr/bin/git commit -a -m auto
