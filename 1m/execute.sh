@@ -20,27 +20,27 @@ ts=$(date +"%s")
 #pueue add -g mount -- $HOME/bin/sudo.sh mount -t nfs snas:volume1/homes/abraxas/myq /home/abraxas/myq
 #fi
 
-cd /home/abraxas/myq/ONCE/ALL
-ts=$(date +"%s")
-COUNT=$(rclone lsf /home/abraxas/myq/ONCE/ALL --include="*.sh" --files-only | wc -l)
-if [[ $COUNT > "0" ]]; then
-   chmod +x *.sh
-   for line in $(rclone lsf  /home/abraxas/myq/ONCE/ALL --include="*.sh" --files-only); do
-     mv /home/abraxas/myq/ONCE/ALL/$line /home/abraxas/myq/ONCE/ALL/process_me/$line$ts.sh
-   done
-fi
+#cd /home/abraxas/myq/ONCE/ALL
+#ts=$(date +"%s")
+#COUNT=$(rclone lsf /home/abraxas/myq/ONCE/ALL --include="*.sh" --files-only | wc -l)
+#if [[ $COUNT > "0" ]]; then
+#   chmod +x *.sh
+##   for line in $(rclone lsf  /home/abraxas/myq/ONCE/ALL --include="*.sh" --files-only); do
+#     mv /home/abraxas/myq/ONCE/ALL/$line /home/abraxas/myq/ONCE/ALL/process_me/$line$ts.sh
+#   done
+#fi
 
-mkdir /home/abraxas/myq/ONCE/ALL/done/$(hostname) >/dev/null 2>/dev/null
-cd /home/abraxas/myq/ONCE/ALL/process_me
-COUNT=$(rclone lsf /home/abraxas/myq/ONCE/ALL/process_me --files-only | wc -l)
-if [[ $COUNT > "0" ]]; then
-  for line in $(rclone lsf /home/abraxas/myq/ONCE/ALL/process_me --files-only); do
-     if [[ $(rclone lsf /home/abraxas/myq/ONCE/ALL/done/$(hostname)/$line | wc -l) = "0" ]]; then
-       /bin/bash /home/abraxas/myq/ONCE/ALL/process_me/$line
-       mv /home/abraxas/myq/ONCE/ALL/process_me/$line /home/abraxas/myq/ONCE/ALL/done/$(hostname)/$line 
-     fi
-  done
-fi
+#mkdir -p /home/abraxas/myq/ONCE/ALL/done/$(hostname) >/dev/null 2>/dev/null
+#cd /home/abraxas/myq/ONCE/ALL/process_me
+#COUNT=$(rclone lsf /home/abraxas/myq/ONCE/ALL/process_me --files-only | wc -l)
+#if [[ $COUNT > "0" ]]; then
+#  for line in $(rclone lsf /home/abraxas/myq/ONCE/ALL/process_me --files-only); do
+#     if [[ $(rclone lsf /home/abraxas/myq/ONCE/ALL/done/$(hostname)/$line | wc -l) = "0" ]]; then
+#       /bin/bash /home/abraxas/myq/ONCE/ALL/process_me/$line
+#       mv /home/abraxas/myq/ONCE/ALL/process_me/$line /home/abraxas/myq/ONCE/ALL/done/$(hostname)/$line 
+#     fi
+#  done
+#fi
 
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 curl -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/execute
@@ -58,9 +58,9 @@ if [[ $(hostname) = *"ionos1"* ]]; then
 /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=ionos1b -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -sL https://raw.githubusercontent.com/abraxas678/execute/master/ionos1b.sh)
 fi
 
-if [[ $(hostname) = *"ionos1"* ]]; then
-echo
-fi
+exit
+
+
 
 echo LUBUNTU
 if [[ $(hostname) = *"lubuntu"* ]]; then
