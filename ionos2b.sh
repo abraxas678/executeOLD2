@@ -84,6 +84,7 @@ export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh
 
 ### 1h
   if [[ $DIFF1h -gt "3600" ]]; then
+     curl -d "$(hostname) move-put" https://n.yyps.de/alert
      echo START 1h
      echo; echo MOVE PUT
      /bin/bash $HOME/bin/move-put.sh
