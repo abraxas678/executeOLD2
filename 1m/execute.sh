@@ -6,7 +6,7 @@ source /home/abraxas/bin/path.dat
 source /home/abraxas/bin/functions.dat
 source /home/abraxas/.zsh.env
 ts=$(date +"%s")
-
+/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=last_screenshot -ping-key=o4zFWbG--a472NL8pc39jQ -- echo $(hostname); /bin/bash $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
 #### new sh for ALL
 # $(which unison) new -batch
 
