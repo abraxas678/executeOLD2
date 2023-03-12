@@ -67,7 +67,8 @@ curl -d "$(hostname) $ts $TS_OLD $TS_DIFF" https://n.yyps.de/alert
 if [[ $TS_DIFF -gt "111" ]]; then
    echo 3600
    curl -d "$(hostname) -----3600---- $ts $TS_OLD $TS_DIFF" https://n.yyps.de/alert
-   $(which pueue) add -- unison new -batch; $(which pueue) add -- unison new-downloads -batch      
+   $(which pueue) add -- unison new -batch; $(which pueue) add -- unison new-downloads -batch   
+   echo $ts >/home/abraxas/tmp/$(hostname)/execute.sh.1h.dat
 fi
 
 
