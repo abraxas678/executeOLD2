@@ -58,6 +58,16 @@ if [[ $(hostname) = *"ionos1"* ]]; then
 /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=ionos1b -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -sL https://raw.githubusercontent.com/abraxas678/execute/master/ionos1b.sh)
 fi
 
+### ever 1h all machines
+[[ ! -f /home/abraxas/tmp/$(hostname)/execute.sh.1h.dat ]] && mkdir -p /home/abraxas/tmp/$(hostname)/ && echo $ts >/home/abraxas/tmp/$(hostname)/execute.sh.1h.dat
+TS_OLD=$(cat /home/abraxas/tmp/$(hostname)/execute.sh.1h.dat)
+TS_DIFF=$(($ts-$TS_OLD))
+echo TS_DIFF $TS_DIFF
+if [[ $TS_DIFF -gt "3600" ]]; then
+   echo 3600
+fi
+
+
 exit
 
 
