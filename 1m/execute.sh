@@ -1,5 +1,6 @@
 #!/bin/bash
 echo; echo START EXECUTE.sh
+/bin/bash $HOME/bin/processq_execute.sh
 export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
 echo "exeute.sh_version: 1.02"
 source /home/abraxas/bin/path.dat
