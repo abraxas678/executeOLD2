@@ -1,6 +1,6 @@
 #!/bin/bash
 echo IONOS1b.sh
- $HOME/bin/last_screenshot.sh >$HOME/docker/www/control/files/last_screenshot.last
+ $HOME/bin/last_screenshot.sh --script >$HOME/docker/www/control/files/last_screenshot.last
  LAST_PBBACKUP=$(curl -sk --request GET -H 'Content-Type: application/json' --url https://pocket.yyps.de/api/collections/smarthome/records | jq '.items[] | "\(.pbbackup)"' | sed 's/\"//g')
  ts=$(date +"%s")
  DIFF=$((ts-LAST_PBBACKUP))
