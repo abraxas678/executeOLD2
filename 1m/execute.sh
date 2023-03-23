@@ -50,7 +50,7 @@ curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 curl -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/execute
 
 ###stats.sh
-/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=execute -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash /home/abraxas/bin/stats.sh
+/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=stats -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash /home/abraxas/bin/stats.sh
 $(which unison) new-snas-www -batch
 
 echo IONOS2
