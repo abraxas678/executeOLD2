@@ -49,8 +49,8 @@ $(which unison) new -batch
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 curl -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/execute
 
-/bin/bash /home/abraxas/bin/stats.sh
-/usr/bin/unison new -batch
+/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=execute -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash /home/abraxas/bin/stats.sh
+#/usr/bin/unison new -batch
 
 echo IONOS2
 if [[ $(hostname) = *"ionos2"* ]]; then
