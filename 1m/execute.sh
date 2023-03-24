@@ -10,6 +10,9 @@ source /home/abraxas/bin/functions.dat
 source /home/abraxas/.zsh.env
 ts=$(date +"%s")
 
+### syncnow
+/bin/bash $HOME/bin/syncnow.sh
+
 ###once_all
 /bin/bash $HOME/bin/once_all.sh
 
