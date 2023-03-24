@@ -50,7 +50,7 @@ echo DIFF15m $DIFF15m
 echo DIFF1h $DIFF1h
 
 if [[ $(hostname) = *"ionos2"* ]]; then
- source /home/abraxas/bin/path.dat
+  source /home/abraxas/bin/path.dat
 # echo
 # echo MOVE TELE
 # echo "========="
@@ -61,7 +61,7 @@ if [[ $(hostname) = *"ionos2"* ]]; then
 ## echo "=================="
 # [[ $(ps aux) != *"rclone move rad:mp4_favourites"* ]] && rclone move rad:mp4_favourites gdc:Videos/favourites --update --fast-list -P
 
-export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
+  export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
 
 ### 15min
   if [[ $DIFF15m -gt "900" ]]; then
@@ -76,9 +76,17 @@ export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh
     
      echo; echo "MOVE TORRENT:"
            echo "============="
+     
+     ###  /usr/bin/rclone move rad: gd:torrent-new --include="*.torrent" -P
      /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=rclone -ping-key=o4zFWbG--a472NL8pc39jQ /usr/bin/rclone move rad: gd:torrent-new --include="*.torrent" -P
 #     /usr/bin/rclone move rad: gd:torrent-new --include "*.torrent" -P
      pb update scripting ionos215m 2595zja8d5mmq2n $ts
+    
+    echo $(date) >/home/abraxas/docker/www/control/files/snas_downloads_jdownloader.dat
+    rclone size snas:downloads/jdownloader >>/home/abraxas/docker/www/control/files/snas_downloads_jdownloader.dat
+    
+    rclone size --json snas:downloads/jdownloader
+
   fi
 
 
