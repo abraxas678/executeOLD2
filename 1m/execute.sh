@@ -10,6 +10,9 @@ source /home/abraxas/bin/functions.dat
 source /home/abraxas/.zsh.env
 ts=$(date +"%s")
 
+###once_all
+/bin/bash $HOME/bin/once_all.sh
+
 ###  /bin/bash $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
 /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=last_screenshot -ping-key=o4zFWbG--a472NL8pc39jQ -- echo $(hostname); /bin/bash $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
 
