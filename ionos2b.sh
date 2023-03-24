@@ -85,8 +85,11 @@ if [[ $(hostname) = *"ionos2"* ]]; then
     echo $(date) >/home/abraxas/docker/www/control/files/snas_downloads_jdownloader.dat
     rclone size snas:downloads/jdownloader >>/home/abraxas/docker/www/control/files/snas_downloads_jdownloader.dat
     
-    rclone size --json snas:downloads/jdownloader
-
+    JD_SIZEnew=$(rclone size --json snas:downloads/jdownloader | jq '.bytes')
+    JD_SIZEold=$(cat $HOME/tmp/jdsize)
+    [[ *"$JD_SIZEnew"* != *"$JD_SIZEold*" ]] &&
+    echo $JD_SIZEnew >$HOME/tmp/jdsize
+    $(which python3) $HOME/bin/new_videos_latest_2file_thumbnail.py   
   fi
 
 
