@@ -53,7 +53,7 @@ if [[ $TS_DIFF -gt "3600" ]]; then
    /bin/bash $HOME/bin/uni.sh
   # curl -d "$(hostname) -----3600---- $ts $TS_OLD $TS_DIFF" https://n.yyps.de/alert
    #$(which pueue) add -- unison new -batch; $(which pueue) add -- unison new-downloads -batch   
-   echo $ts >/home/abraxas/tmp/$(hostname)/execute.sh.1h.dat
-   echo $ts >/home/abraxas/docker/www/control/files/$(hostname)_execute.sh.1h.dat
+   echo "$(date) $(hostname)" >/home/abraxas/www/strg/stats/$(hostname)/execute.sh.1h.dat
+   echo $ts >/home/abraxas/docker/www/strg/stats/$(hostname)_execute.sh.1h.dat
 fi
 exit
