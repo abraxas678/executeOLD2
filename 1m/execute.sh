@@ -4,13 +4,19 @@ echo "exeute.sh_version: 1.02"
 source /home/abraxas/bin/path.dat
 source /home/abraxas/bin/functions.dat
 source /home/abraxas/.zsh.env
+export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
 ts=$(date +"%s")
+
+curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
+curl -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/execute
 
 ### processq_excute -- löst execute_$(hostname) auf HC aus
 cd $HOME/bin/; [[ ! -f $HOME/bin/processq_execute.sh ]] && wget https://raw.githubusercontent.com/abraxas678/execute/master/processq_execute.sh; chmod +x *.sh;
 /bin/bash $HOME/bin/processq_execute.sh
 
-export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
+###stats.sh
+/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=stats -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash /home/abraxas/bin/stats.sh
+#$(which unison) new-snas-www -batch
 
 ### syncnow
 echo " " >>~/www/files/syncnow_$(hostname).log
@@ -21,15 +27,7 @@ echo $(date) >>~/www/files/syncnow_$(hostname).log
 /bin/bash $HOME/bin/once_all.sh
 
 ###  /bin/bash $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
-/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=last_screenshot -ping-key=o4zFWbG--a472NL8pc39jQ -- echo $(hostname); /bin/bash $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
-
-
-curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
-curl -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/execute
-
-###stats.sh
-/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=stats -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash /home/abraxas/bin/stats.sh
-#$(which unison) new-snas-www -batch
+###  /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=last_screenshot -ping-key=o4zFWbG--a472NL8pc39jQ -- echo $(hostname); /bin/bash $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
 
 echo IONOS2
 if [[ $(hostname) = *"ionos2"* ]]; then
