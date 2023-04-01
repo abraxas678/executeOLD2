@@ -1,6 +1,6 @@
 #!/bin/bash
 echo; echo START EXECUTE.sh
-echo "exeute.sh_version: 1.02"
+echo "exeute.sh_version: 1.03"
 source /home/abraxas/bin/path.dat
 source /home/abraxas/bin/functions.dat
 source /home/abraxas/.zsh.env
@@ -9,8 +9,7 @@ ts=$(date +"%s")
 
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 curl -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/execute
-
-### processq_excute -- löst execute_$(hostname) auf HC aus
+### >> processq_excute -- löst execute_$(hostname) auf HC aus
 cd $HOME/bin/; [[ ! -f $HOME/bin/processq_execute.sh ]] && wget https://raw.githubusercontent.com/abraxas678/execute/master/processq_execute.sh; chmod +x *.sh;
 /bin/bash $HOME/bin/processq_execute.sh
 
@@ -27,19 +26,7 @@ echo $(date) >>~/www/files/syncnow_$(hostname).log
 /bin/bash $HOME/bin/once_all.sh
 
 ###  /bin/bash $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
-/home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=last_screenshot -ping-key=o4zFWbG--a472NL8pc39jQ -- echo $(hostname); /bin/bash $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
-
-echo IONOS2
-if [[ $(hostname) = *"ionos2"* ]]; then
-###ionos2b.sh
-   /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=ionos2b -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -sL https://raw.githubusercontent.com/abraxas678/execute/master/ionos2b.sh)
-fi
-
-echo IONOS1
-if [[ $(hostname) = *"ionos1"* ]]; then
-###ionos1b.sh
-   /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=ionos1b -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -sL https://raw.githubusercontent.com/abraxas678/execute/master/ionos1b.sh)
-fi
+/bin/bash $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
 
 ### every 1h all machines
 [[ ! -f /home/abraxas/tmp/$(hostname)/execute.sh.1h.dat ]] && mkdir -p /home/abraxas/tmp/$(hostname)/ && echo $ts >/home/abraxas/tmp/$(hostname)/execute.sh.1h.dat
@@ -56,5 +43,17 @@ if [[ $TS_DIFF -gt "3600" ]]; then
    #$(which pueue) add -- unison new -batch; $(which pueue) add -- unison new-downloads -batch   
    echo "$(date) $(hostname)" >/home/abraxas/www/strg/stats/$(hostname)/execute.sh.1h.dat
    echo $ts >/home/abraxas/docker/www/strg/stats/$(hostname)_execute.sh.1h.dat
+fi
+
+echo IONOS2
+if [[ $(hostname) = *"ionos2"* ]]; then
+###ionos2b.sh
+   /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=ionos2b -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -sL https://raw.githubusercontent.com/abraxas678/execute/master/ionos2b.sh)
+fi
+
+echo IONOS1
+if [[ $(hostname) = *"ionos1"* ]]; then
+###ionos1b.sh
+   /home/abraxas/bin/runitor -every=0 -api-url=https://hc-ping.com -slug=ionos1b -ping-key=o4zFWbG--a472NL8pc39jQ -- /bin/bash <(curl -sL https://raw.githubusercontent.com/abraxas678/execute/master/ionos1b.sh)
 fi
 exit
