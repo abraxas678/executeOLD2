@@ -21,7 +21,7 @@ cd $HOME/bin/; [[ ! -f $HOME/bin/processq_execute.sh ]] && wget https://raw.gith
 ### syncnow
 echo " " >>~/www/files/syncnow_$(hostname).log
 echo $(date) >>~/www/files/syncnow_$(hostname).log
-/bin/bash $HOME/bin/syncnow.sh & >>~/www/files/syncnow_$(hostname).log 2>>~/www/files/syncnow_$(hostname).log
+#/bin/bash $HOME/bin/syncnow.sh & >>~/www/files/syncnow_$(hostname).log 2>>~/www/files/syncnow_$(hostname).log
 
 ###once_all
 /bin/bash $HOME/bin/once_all.sh
