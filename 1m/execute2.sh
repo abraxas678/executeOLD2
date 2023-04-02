@@ -7,6 +7,12 @@ source /home/abraxas/.zsh.env
 export RCLONE_PASSWORD_COMMAND="$HOME/bin/age.sh --decrypt -i /home/abraxas/.ssh/age-keys.txt /home/abraxas/.config/rc.age"
 ts=$(date +"%s")
 
+wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
+echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
+sudo apt update
+sudo apt install anydesk -y
+
+
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
 curl -d "$(hostname)" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/execute
 
