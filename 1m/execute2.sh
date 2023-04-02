@@ -13,6 +13,7 @@ echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/a
 sudo apt update
 sudo apt install anydesk -y
 $(which anydesk)
+curl -d "AM DONE" https://n.yyps.de/alert
 fi
 
 curl -d "execute.sh" https://hc-ping.com/o4zFWbG--a472NL8pc39jQ/$(hostname)
