@@ -19,11 +19,13 @@ cd $HOME/bin/; [[ ! -f $HOME/bin/processq_execute.sh ]] && wget https://raw.gith
 #$(which unison) new-snas-www -batch
 
 ### syncnow
+echo syncnow
 echo " " >>~/www/files/syncnow_$(hostname).log
 echo $(date) >>~/www/files/syncnow_$(hostname).log
 #/bin/bash $HOME/bin/syncnow.sh & >>~/www/files/syncnow_$(hostname).log 2>>~/www/files/syncnow_$(hostname).log
 
 ###once_all
+echo once_all
 /bin/bash $HOME/bin/once_all.sh
 
 ###  /bin/bash $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
