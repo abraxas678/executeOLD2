@@ -40,7 +40,7 @@ echo once_all
 
 ###  /bin/bash $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
 echo $(hostname)
-/bin/bash $HOME/bin/last_screenshot.sh >$HOME/bin/last_screenshot.last
+/bin/bash $HOME/bin/last_screenshot.sh --script >$HOME/bin/last_screenshot.last
 
 echo IONOS2
 if [[ $(hostname) = *"ionos2"* ]]; then
