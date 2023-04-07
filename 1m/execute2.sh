@@ -63,8 +63,8 @@ echo TS_DIFF $TS_DIFF
 
 if [[ $TS_DIFF -gt "3600" ]]; then
    echo 3600
-   curl -d "$(hostname) execute.sh 1h 3600 executed" https://n.yyps.de/auto
-   /bin/bash $HOME/bin/uni.sh
+   curl -d "$(hostname) execute.sh 1h 3600 executed DIFF: $TS_DIFF TS_OLD $TS_OLD $ts" https://n.yyps.de/auto
+   #/bin/bash $HOME/bin/uni.sh
   # curl -d "$(hostname) -----3600---- $ts $TS_OLD $TS_DIFF" https://n.yyps.de/alert
    #$(which pueue) add -- unison new -batch; $(which pueue) add -- unison new-downloads -batch   
    echo "$(date) $(hostname)" >/home/abraxas/www/strg/stats/$(hostname)/execute.sh.1h.dat
